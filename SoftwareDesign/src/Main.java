@@ -1,3 +1,4 @@
+import GUI.DisplayGraphics;
 import GUI.GUI;
 import Observer.DisplayStats;
 
@@ -8,7 +9,8 @@ public class Main {
 	System.out.println("Test");	
 	new GUI();
 	DisplayStats stats = new DisplayStats();
-	
+	//DisplayGraphics graphics = new DisplayGraphics();
+	//graphics.
 	
 	}
 	

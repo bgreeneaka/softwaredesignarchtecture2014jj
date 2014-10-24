@@ -9,7 +9,7 @@ public class DisplayGraphics extends JPanel {
 
 	JPanel panel = new JPanel();
 
-	DisplayGraphics() {// constructor
+	public DisplayGraphics() {// constructor
 
 		JLabel lbl = new JLabel("DisplayGraphics");
 		setBorder(BorderFactory.createLineBorder(Color.black));

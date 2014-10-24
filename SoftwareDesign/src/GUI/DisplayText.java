@@ -9,7 +9,7 @@ public class DisplayText extends JPanel {
 
 	JPanel panel = new JPanel();
 
-	DisplayText() {// constructor
+	public DisplayText() {// constructor
 
 		JLabel lbl = new JLabel("DisplayText");
 		setBorder(BorderFactory.createLineBorder(Color.black));
