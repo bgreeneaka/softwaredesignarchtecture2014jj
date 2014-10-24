@@ -1,16 +1,17 @@
+package GUI;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class DisplayGraphics extends JPanel {
+public class DisplayText extends JPanel {
 
 	JPanel panel = new JPanel();
 
-	DisplayGraphics() {// constructor
+	DisplayText() {// constructor
 
-		JLabel lbl = new JLabel("DisplayGraphics");
+		JLabel lbl = new JLabel("DisplayText");
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		add(lbl);
 

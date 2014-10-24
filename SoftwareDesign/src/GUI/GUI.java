@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*; //notice javax
@@ -5,7 +6,7 @@ import javax.swing.*; //notice javax
 public class GUI extends JFrame {
 	JPanel panel = new JPanel();
 
-	GUI() // constructor
+	public GUI() // constructor
 
 	{
 		super("Text Mining");
