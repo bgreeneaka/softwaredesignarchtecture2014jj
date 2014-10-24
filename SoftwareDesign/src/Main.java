@@ -1,7 +1,3 @@
-
-
-
-
 public class Main {
 		// TODO Auto-generated constructor stub
 
