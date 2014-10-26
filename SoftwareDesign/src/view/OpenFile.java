@@ -5,18 +5,14 @@ import javax.swing.*;
 
 public class OpenFile extends JPanel implements Observer {
 	
-	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area
-	//private JButton updateButton = new JButton("Update View"); //New update button
-	
+	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area	
 	/*
 	 * Creates a panel might need to be changed
 	 */
 	public OpenFile() {
 		JPanel openFilePanel = new JPanel();
-		this.setSize(200, 200);		
+		this.txtArea.setWrapStyleWord(true);
 		openFilePanel.add(txtArea);
-		//openFilePanel.add(updateButton);
-		
 		this.add(openFilePanel);
 	}
 	

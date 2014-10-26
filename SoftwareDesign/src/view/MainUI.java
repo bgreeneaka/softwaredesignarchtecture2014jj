@@ -12,10 +12,10 @@ import java.awt.SystemColor;
 
 
 public class MainUI extends JFrame implements Observer {
-	
-	private JButton btnOpenFile = new JButton("Open File");
 	private JButton btnUpdateView = new JButton("Update View");
-	private final JPanel txtPanel = new JPanel();
+	private final JButton btnOpenFile = new JButton("Open File");
+	private final JButton btnAlg1 = new JButton("Alg 1");
+	private final JButton btnAlg2 = new JButton("Alg 2");
 	
 	public MainUI() {
 		super("Text Mining");
@@ -23,12 +23,17 @@ public class MainUI extends JFrame implements Observer {
 		this.setBounds(100, 100, 900, 665);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		SpringLayout springLayout = new SpringLayout();
-		springLayout.putConstraint(SpringLayout.NORTH, txtPanel, 0, SpringLayout.NORTH, btnOpenFile);
-		springLayout.putConstraint(SpringLayout.WEST, txtPanel, -743, SpringLayout.EAST, getContentPane());
-		springLayout.putConstraint(SpringLayout.SOUTH, txtPanel, -367, SpringLayout.SOUTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, txtPanel, -37, SpringLayout.EAST, getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, btnOpenFile, 0, SpringLayout.WEST, btnUpdateView);
-		springLayout.putConstraint(SpringLayout.SOUTH, btnOpenFile, -24, SpringLayout.NORTH, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.NORTH, btnAlg2, 6, SpringLayout.SOUTH, btnAlg1);
+		springLayout.putConstraint(SpringLayout.WEST, btnAlg2, 0, SpringLayout.WEST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.SOUTH, btnAlg2, 29, SpringLayout.SOUTH, btnAlg1);
+		springLayout.putConstraint(SpringLayout.EAST, btnAlg2, 0, SpringLayout.EAST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.NORTH, btnAlg1, 47, SpringLayout.SOUTH, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.WEST, btnAlg1, 0, SpringLayout.WEST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.SOUTH, btnAlg1, 70, SpringLayout.SOUTH, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.EAST, btnAlg1, 0, SpringLayout.EAST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.NORTH, btnOpenFile, -44, SpringLayout.NORTH, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.WEST, btnOpenFile, 10, SpringLayout.WEST, getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, btnOpenFile, -21, SpringLayout.NORTH, btnUpdateView);
 		springLayout.putConstraint(SpringLayout.EAST, btnOpenFile, 0, SpringLayout.EAST, btnUpdateView);
 		springLayout.putConstraint(SpringLayout.NORTH, btnUpdateView, 85, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, btnUpdateView, 10, SpringLayout.WEST, getContentPane());
@@ -36,18 +41,22 @@ public class MainUI extends JFrame implements Observer {
 		
 		
 		TextData txtData = new TextData();
-		OpenFile displayFile = new OpenFile();
-		txtData.registerObserver(displayFile);
 		txtData.registerObserver(this);
 		Controller controller  = new Controller(txtData);
-		displayFile.setVisible(true);
+
 		
-		
-		getContentPane().add(btnOpenFile);
 		getContentPane().add(btnUpdateView);
-		txtPanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		getContentPane().add(txtPanel);
-		txtPanel.add(displayFile);
+		getContentPane().add(btnOpenFile);
+		getContentPane().add(btnAlg1);
+		getContentPane().add(btnAlg2);
+		
+		OpenFile openFile = new OpenFile();
+		springLayout.putConstraint(SpringLayout.NORTH, openFile, 40, SpringLayout.NORTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, openFile, 36, SpringLayout.EAST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.SOUTH, openFile, -329, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, openFile, -39, SpringLayout.EAST, getContentPane());
+		getContentPane().add(openFile);
+		txtData.registerObserver(openFile);
 		this.setVisible(true); // display frame
 		
 
