@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class OpenFile extends JFrame implements Observer {
+public class OpenFile extends JPanel implements Observer {
 	
 	private JTextArea txtArea = new JTextArea(""); // New empty txt area
 	private JButton updateButton = new JButton("Update View"); //New update button
@@ -13,7 +13,7 @@ public class OpenFile extends JFrame implements Observer {
 	 */
 	public OpenFile() {
 		JPanel openFilePanel = new JPanel();
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(200, 200);
 		
 		openFilePanel.add(txtArea);
