@@ -1,8 +1,8 @@
+import controller.Controller;
+import view.DisplayStats;
+import view.OpenFile;
+import model.TextData;
 import GUI.GUI;
-import Observer.Controller;
-import Observer.DisplayStats;
-import Observer.OpenFile;
-import Observer.TextData;
 
 
 public class Main {
@@ -12,14 +12,14 @@ public class Main {
 //	new GUI();
 //	DisplayStats stats = new DisplayStats();
 //	
-	TextData txtData = new TextData(); // //Model
-	System.out.println("Txt Data Created");	
-	OpenFile displayFile = new OpenFile(); // view
-	System.out.println("Open File created");
-	txtData.registerObserver(displayFile);
-	System.out.println("Open File registered");
-	Controller controller  = new Controller(txtData);
-	displayFile.setVisible(true);
+	TextData txtData = new TextData(); // (Model) Create new subject/ model which holds all data 
+	System.out.println("Txt Data Created");	//FOR TESTING
+	OpenFile displayFile = new OpenFile(); // (View) Create new view/observer to display data from model/subject
+	System.out.println("Open File created"); //FOR TESTING
+	txtData.registerObserver(displayFile);  //register observer with subject
+	System.out.println("Open File registered"); //FOR TESTING
+	Controller controller  = new Controller(txtData); //Create new controller and add the model to it
+	displayFile.setVisible(true); 
 	
 	
 	

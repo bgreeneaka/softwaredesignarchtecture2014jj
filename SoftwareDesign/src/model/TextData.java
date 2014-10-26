@@ -1,9 +1,9 @@
-package Observer;
+package model;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import Observer.Observer;
+import view.Observer;
 /*
  * This is the subject, the Observable object
  */
@@ -37,6 +37,9 @@ public class TextData implements Subject {
 		}	
 	}
 	
+	/*
+	 * Add an update listner to all subjects
+	 */
 	public void addUpdateListner(ActionListener updateListner) {
 		for(Observer o: observers){
 			o.addActionListener(updateListner);
@@ -51,7 +54,4 @@ public class TextData implements Subject {
 		notifyObservers();
 	}
 	
-	public String getString(){
-		return this.str1;
-	}
 }

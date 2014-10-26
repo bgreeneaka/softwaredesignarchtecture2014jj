@@ -1,4 +1,4 @@
-package Command;
+package controller;
 
 public interface Command {
 	public void execute();

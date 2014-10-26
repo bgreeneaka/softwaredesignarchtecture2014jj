@@ -1,4 +1,4 @@
-package Command;
+package controller;
 
 import javax.swing.JMenuItem;
 
