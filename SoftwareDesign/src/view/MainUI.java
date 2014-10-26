@@ -9,6 +9,7 @@ import model.TextData;
 import controller.Controller;
 import javax.swing.border.BevelBorder;
 import java.awt.SystemColor;
+import java.awt.Color;
 
 
 public class MainUI extends JFrame implements Observer {
@@ -51,12 +52,15 @@ public class MainUI extends JFrame implements Observer {
 		getContentPane().add(btnAlg2);
 		
 		OpenFile openFile = new OpenFile();
-		springLayout.putConstraint(SpringLayout.NORTH, openFile, 40, SpringLayout.NORTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.NORTH, openFile, 21, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, openFile, 36, SpringLayout.EAST, btnUpdateView);
-		springLayout.putConstraint(SpringLayout.SOUTH, openFile, -329, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.SOUTH, openFile, -348, SpringLayout.SOUTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.EAST, openFile, -39, SpringLayout.EAST, getContentPane());
+		openFile.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), SystemColor.controlText, SystemColor.textInactiveText, SystemColor.textInactiveText));
 		getContentPane().add(openFile);
 		txtData.registerObserver(openFile);
+		
+
 		this.setVisible(true); // display frame
 		
 

@@ -1,19 +1,25 @@
 package view;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class OpenFile extends JPanel implements Observer {
+public class OpenFile extends JScrollPane implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area	
 	/*
 	 * Creates a panel might need to be changed
 	 */
 	public OpenFile() {
-		JPanel openFilePanel = new JPanel();
-		this.txtArea.setWrapStyleWord(true);
-		openFilePanel.add(txtArea);
-		this.add(openFilePanel);
+		this.txtArea.setLineWrap(true);
+		this.txtArea.setPreferredSize(new Dimension(650,100));
+		JScrollBar scrollBar = new JScrollBar();
+		this.setRowHeaderView(scrollBar);
+		this.setViewportView(txtArea);
+		this.txtArea.setVisible(true);
+		this.txtArea.setEditable(false);
 	}
 	
 	
