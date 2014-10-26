@@ -1,4 +1,4 @@
-package Observer;
+package view;
 
 public class DisplayStats {
 

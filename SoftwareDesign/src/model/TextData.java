@@ -1,14 +1,20 @@
-package Observer;
+package model;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import view.Observer;
+/*
+ * This is the subject, the Observable object
+ */
 public class TextData implements Subject {
 	
-	public String str1, str2, str3;
+	public String str1;
 	private ArrayList<Observer> observers;
 	
 	public TextData() {
-		// TODO Auto-generated constructor stub
+		// Constructor
+		observers = new ArrayList();
 	}
 
 	@Override
@@ -27,19 +33,25 @@ public class TextData implements Subject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(str1, str2, str3);
-		}
-		
+			o.update(str1);
+		}	
 	}
 	
 	/*
-	 * Method to test the observer update
+	 * Add an update listner to all subjects
 	 */
-	public void editText(String str1, String str2, String str3){
-		this.str1 = str1;
-		this.str2 = str2;
-		this.str3 = str3;
+	public void addUpdateListner(ActionListener updateListner) {
+		for(Observer o: observers){
+			o.addActionListener(updateListner);
+		}
 		
 	}
-
+	/*
+	 * Method to test the observer update
+	 */
+	public void editText(String strUpdate){
+		this.str1 = this.str1 + strUpdate;	
+		notifyObservers();
+	}
+	
 }
