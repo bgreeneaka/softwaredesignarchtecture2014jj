@@ -5,19 +5,17 @@ import javax.swing.*;
 
 public class OpenFile extends JPanel implements Observer {
 	
-	private JTextArea txtArea = new JTextArea(""); // New empty txt area
-	private JButton updateButton = new JButton("Update View"); //New update button
+	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area
+	//private JButton updateButton = new JButton("Update View"); //New update button
 	
 	/*
 	 * Creates a panel might need to be changed
 	 */
 	public OpenFile() {
 		JPanel openFilePanel = new JPanel();
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(200, 200);
-		
+		this.setSize(200, 200);		
 		openFilePanel.add(txtArea);
-		openFilePanel.add(updateButton);
+		//openFilePanel.add(updateButton);
 		
 		this.add(openFilePanel);
 	}
@@ -26,7 +24,7 @@ public class OpenFile extends JPanel implements Observer {
 	@Override
 	public void update(String str1) {
 		// Updates the testArea with new string. This also needs work but provides proof of concept
-		this.txtArea.setText(str1);	
+		this.txtArea.setText(str1 +this.txtArea.getText());	
 	}
 	
 	public String getText() {
@@ -41,7 +39,7 @@ public class OpenFile extends JPanel implements Observer {
 	@Override
 	public void addActionListener(ActionListener updateListner) {
 		// TODO Auto-generated method stub
-		updateButton.addActionListener(updateListner);
+		//updateButton.addActionListener(updateListner);
 	}
 
 

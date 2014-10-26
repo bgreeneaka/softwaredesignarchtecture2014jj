@@ -22,7 +22,6 @@ public class Controller {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			txtData.editText(" HAS NOW BEEN UPDATED");//Just for testing to see if update committed
-			//txtData.notifyAll();
 			//fileView.update(txtData.getString());
 		}
 

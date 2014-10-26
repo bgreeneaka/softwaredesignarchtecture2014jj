@@ -9,7 +9,7 @@ import view.Observer;
  */
 public class TextData implements Subject {
 	
-	public String str1;
+	public String str1 ="";
 	private ArrayList<Observer> observers;
 	
 	public TextData() {
