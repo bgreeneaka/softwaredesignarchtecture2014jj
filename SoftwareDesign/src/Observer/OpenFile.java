@@ -1,10 +1,13 @@
 package Observer;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
+import Observer.Controller.UpdateListner;
 import Observer.Observer;
 
-public class OpenFile extends JPanel implements Observer {
+public class OpenFile extends JFrame implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("");
 	private JButton updateButton = new JButton("Update View");
@@ -12,7 +15,7 @@ public class OpenFile extends JPanel implements Observer {
 	
 	public OpenFile() {
 		JPanel openFilePanel = new JPanel();
-		this.setBorder(BorderFactory.createLineBorder(Color.black));
+		//this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(200, 200);
 		
@@ -20,13 +23,6 @@ public class OpenFile extends JPanel implements Observer {
 		openFilePanel.add(updateButton);
 		this.add(openFilePanel);
 	}
-
-
-	private void setDefaultCloseOperation(int exitOnClose) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public void update(String str1) {
@@ -39,9 +35,13 @@ public class OpenFile extends JPanel implements Observer {
 	}
 
 
-	public void addUpdateListner(ActionListener updateListner) {
+
+	@Override
+	public void addActionListener(ActionListener updateListner) {
 		// TODO Auto-generated method stub
 		updateButton.addActionListener(updateListner);
 	}
+
+
 
 }
