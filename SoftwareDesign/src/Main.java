@@ -1,11 +1,13 @@
 
-import GUI.DisplayGraphics;
 import controller.Controller;
+import controller.FileOpenCommand;
+import controller.Invoker;
+import view.DisplayGraphics;
 import view.DisplayStats;
+import view.GUI;
 import view.MainUI;
 import view.OpenFile;
 import model.TextData;
-import GUI.GUI;
 
 
 public class Main {
@@ -24,6 +26,20 @@ public class Main {
 //	displayFile.setVisible(true); 
 	MainUI uI = new MainUI();
 	
+	
+	
+  
+     
+    //creating command 
+    FileOpenCommand openFileCommand = new FileOpenCommand("ABCD123456789");
+     
+    //Creating invoker 
+    Invoker file = new Invoker(openFileCommand);
+     
+    //perform action on invoker object
+    file.execute();
+     
+   
 	
 	}
 	
