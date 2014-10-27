@@ -95,3 +95,4 @@ public class MainUI extends JFrame implements Observer {
 		action.execute();
 	}
 }
+

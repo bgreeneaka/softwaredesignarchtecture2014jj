@@ -1,11 +1,13 @@
 
-import GUI.DisplayGraphics;
 import controller.Controller;
+import controller.FileOpenCommand;
+
+import view.DisplayGraphics;
 import view.DisplayStats;
+import view.GUI;
 import view.MainUI;
 import view.ViewFile;
 import model.TextData;
-import GUI.GUI;
 
 
 public class Main {
@@ -25,6 +27,7 @@ public class Main {
 	MainUI uI = new MainUI();
 	
 	
+
 	}
 	
 }

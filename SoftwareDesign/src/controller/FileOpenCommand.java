@@ -13,8 +13,11 @@ public class FileOpenCommand extends JMenuItem implements Command {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
+		System.out.println("openfile"); // diagnostic
 		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.showOpenDialog(null);
+		fileChooser.showOpenDialog(this);
+	
+		
 	}
 
 }
