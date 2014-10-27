@@ -1,20 +1,28 @@
 package view;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 import model.TextData;
+import controller.BtnOpenCmd;
+import controller.BtnUpdateCmd;
+import controller.Command;
 import controller.Controller;
+import controller.FileOpenCommand;
+
 import javax.swing.border.BevelBorder;
+
 import java.awt.SystemColor;
 import java.awt.Color;
 
 
 public class MainUI extends JFrame implements Observer {
-	private JButton btnUpdateView = new JButton("Update View");
-	private final JButton btnOpenFile = new JButton("Open File");
+	private TextData txtData = new TextData(); //NOT SURE ABOUT THIS GLOBAL VARAIBLE
+	private BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
+	private final BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File");
 	private final JButton btnAlg1 = new JButton("Alg 1");
 	private final JButton btnAlg2 = new JButton("Alg 2");
 	
@@ -41,24 +49,27 @@ public class MainUI extends JFrame implements Observer {
 		getContentPane().setLayout(springLayout);
 		
 		
-		TextData txtData = new TextData();
+//		TextData txtData = new TextData(); changed to global variable need to over come this !!!!!!!!!BAD CODE!!!!!!!!!!!!!!
 		txtData.registerObserver(this);
 		Controller controller  = new Controller(txtData);
+		
+		
+
 
 		
-		getContentPane().add(btnUpdateView);
+		this.add(btnUpdateView);
 		getContentPane().add(btnOpenFile);
 		getContentPane().add(btnAlg1);
 		getContentPane().add(btnAlg2);
 		
-		OpenFile openFile = new OpenFile();
-		springLayout.putConstraint(SpringLayout.NORTH, openFile, 21, SpringLayout.NORTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, openFile, 36, SpringLayout.EAST, btnUpdateView);
-		springLayout.putConstraint(SpringLayout.SOUTH, openFile, -348, SpringLayout.SOUTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, openFile, -39, SpringLayout.EAST, getContentPane());
-		openFile.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), SystemColor.controlText, SystemColor.textInactiveText, SystemColor.textInactiveText));
-		getContentPane().add(openFile);
-		txtData.registerObserver(openFile);
+		ViewFile viewFile = new ViewFile();
+		springLayout.putConstraint(SpringLayout.NORTH, viewFile, 21, SpringLayout.NORTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, viewFile, 36, SpringLayout.EAST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.SOUTH, viewFile, -348, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, viewFile, -39, SpringLayout.EAST, getContentPane());
+		viewFile.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), SystemColor.controlText, SystemColor.textInactiveText, SystemColor.textInactiveText));
+		getContentPane().add(viewFile);
+		txtData.registerObserver(viewFile);
 		
 
 		this.setVisible(true); // display frame
@@ -72,8 +83,15 @@ public class MainUI extends JFrame implements Observer {
 		
 	}
 
-	public void addActionListener(ActionListener updateListner) {
+	public void addActionListener(ActionListener command) {
 		// TODO Auto-generated method stub
-		btnUpdateView.addActionListener(updateListner);
+		btnUpdateView.addActionListener(command);
+		btnOpenFile.addActionListener(command);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Command action = (Command) e.getSource();
+		action.execute();
 	}
 }

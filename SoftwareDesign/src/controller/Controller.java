@@ -14,16 +14,26 @@ public class Controller {
 		// Constructor
 		//this.fileView = fileView;
 		this.txtData = txtData;
-		this.txtData.addUpdateListner(new UpdateListner()); //Add update listener to the model. DO NOT KNOW IF THE LOGIC IS CORRECT HERE
+		this.txtData.addUpdateListner(new CommandListner()); //Add update listener to the model. DO NOT KNOW IF THE LOGIC IS CORRECT HERE
 	}
 
-	public class UpdateListner implements ActionListener {
+//	public class UpdateListner implements ActionListener {
+//		//Action for when update is pushed
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			txtData.editText(" HAS NOW BEEN UPDATED");//Just for testing to see if update committed
+//			//fileView.update(txtData.getString());
+//		}
+//	}
+	
+	public class CommandListner implements ActionListener {
 		//Action for when update is pushed
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			txtData.editText(" HAS NOW BEEN UPDATED");//Just for testing to see if update committed
-			//fileView.update(txtData.getString());
+			Command action = (Command) e.getSource();
+			action.execute();
 		}
+		
 
 	}
 }

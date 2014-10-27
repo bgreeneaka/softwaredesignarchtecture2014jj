@@ -3,7 +3,7 @@ import GUI.DisplayGraphics;
 import controller.Controller;
 import view.DisplayStats;
 import view.MainUI;
-import view.OpenFile;
+import view.ViewFile;
 import model.TextData;
 import GUI.GUI;
 

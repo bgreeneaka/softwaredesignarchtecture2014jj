@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class OpenFile extends JScrollPane implements Observer {
+public class ViewFile extends JScrollPane implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area	
 	/*
 	 * Creates a panel might need to be changed
 	 */
-	public OpenFile() {
+	public ViewFile() {
 		this.txtArea.setLineWrap(true);
 		this.txtArea.setPreferredSize(new Dimension(650,100));
 		JScrollBar scrollBar = new JScrollBar();
