@@ -44,8 +44,8 @@ public class ViewFile extends JScrollPane implements Observer {
 		//updateButton.addActionListener(updateListner);
 	}
 
-	public void setText(){
-		this.txtArea.setText(arg0);
+	public void setText(String string){
+		this.txtArea.setText(string);
 	}
 
 }

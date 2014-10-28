@@ -21,8 +21,9 @@ import java.awt.Color;
 
 public class MainUI extends JFrame implements Observer {
 	private TextData txtData = new TextData(); //NOT SURE ABOUT THIS GLOBAL VARAIBLE
+	private ViewFile viewFile = new ViewFile(); //NOT SURE ABOUT THIS GLOBAL VARAIBLE
 	private BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
-	private final BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File");
+	private final BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile);
 	private final JButton btnAlg1 = new JButton("Alg 1");
 	private final JButton btnAlg2 = new JButton("Alg 2");
 	
@@ -62,7 +63,7 @@ public class MainUI extends JFrame implements Observer {
 		getContentPane().add(btnAlg1);
 		getContentPane().add(btnAlg2);
 		
-		ViewFile viewFile = new ViewFile();
+		//ViewFile viewFile = new ViewFile();
 		springLayout.putConstraint(SpringLayout.NORTH, viewFile, 21, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, viewFile, 36, SpringLayout.EAST, btnUpdateView);
 		springLayout.putConstraint(SpringLayout.SOUTH, viewFile, -348, SpringLayout.SOUTH, getContentPane());
