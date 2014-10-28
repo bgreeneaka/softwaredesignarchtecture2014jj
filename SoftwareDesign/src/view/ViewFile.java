@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class ViewFile extends JScrollPane implements Observer {
 	
-	private JTextArea txtArea = new JTextArea("txt area created"); // New empty txt area	
+	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt	
 	/*
 	 * Creates a panel might need to be changed
 	 */
@@ -44,6 +44,8 @@ public class ViewFile extends JScrollPane implements Observer {
 		//updateButton.addActionListener(updateListner);
 	}
 
-
+	public void setText(){
+		this.txtArea.setText(arg0);
+	}
 
 }

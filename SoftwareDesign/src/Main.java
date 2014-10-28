@@ -1,7 +1,10 @@
 
+import java.io.IOException;
+
+import opennlp.tools.util.InvalidFormatException;
 import controller.Controller;
 import controller.FileOpenCommand;
-
+import controller.NLPTest;
 import view.DisplayGraphics;
 import view.DisplayStats;
 import view.GUI;
@@ -11,7 +14,7 @@ import model.TextData;
 
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidFormatException, IOException {
 	// TODO Auto-generated method stub
 	System.out.println("Test");	
 
@@ -25,6 +28,7 @@ public class Main {
 //	Controller controller  = new Controller(txtData); //Create new controller and add the model to it
 //	displayFile.setVisible(true); 
 	MainUI uI = new MainUI();
+	
 	
 	
 
