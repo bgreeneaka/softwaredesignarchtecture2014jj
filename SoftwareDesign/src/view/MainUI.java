@@ -50,7 +50,7 @@ public class MainUI extends JFrame implements Observer {
 		getContentPane().setLayout(springLayout);
 		
 		
-//		TextData txtData = new TextData(); changed to global variable need to over come this !!!!!!!!!BAD CODE!!!!!!!!!!!!!!
+		//TextData txtData = new TextData();// changed to global variable need to over come this !!!!!!!!!BAD CODE!!!!!!!!!!!!!!
 		txtData.registerObserver(this);
 		Controller controller  = new Controller(txtData);
 		

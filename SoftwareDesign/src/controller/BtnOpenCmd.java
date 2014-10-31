@@ -22,7 +22,7 @@ public class BtnOpenCmd extends JButton implements Command {
 	
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
+		// opens file when execute is called. Selects file and reads txt from file. Adds to a string, this string sets the text of the view
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.showOpenDialog(null);
 		File file = fileChooser.getSelectedFile();

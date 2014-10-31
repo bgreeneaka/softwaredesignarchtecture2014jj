@@ -5,10 +5,12 @@ import opennlp.tools.util.InvalidFormatException;
 import controller.Controller;
 import controller.FileOpenCommand;
 import controller.NLPTest;
+import view.BaseFrame;
 import view.DisplayGraphics;
 import view.DisplayStats;
 import view.GUI;
 import view.MainUI;
+import view.PanelWithOpenBtn;
 import view.ViewFile;
 import model.TextData;
 
@@ -27,11 +29,13 @@ public class Main {
 //	System.out.println("Open File registered"); //FOR TESTING
 //	Controller controller  = new Controller(txtData); //Create new controller and add the model to it
 //	displayFile.setVisible(true); 
-	MainUI uI = new MainUI();
+//	MainUI uI = new MainUI();
+//	TextData txtData = new TextData();
+ //ViewFile viewFile = new ViewFile();
+//	txtData.registerObserver(uI);
+//	txtData.registerObserver(viewFile);
+	MainUI ui = new MainUI();
 	
-	
-	
-
 	}
 	
 }
