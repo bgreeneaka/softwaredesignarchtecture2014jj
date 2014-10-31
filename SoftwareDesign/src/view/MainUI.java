@@ -20,15 +20,14 @@ import java.awt.Color;
 
 
 public class MainUI extends JFrame implements Observer {
-	private TextData txtData = new TextData(); //NOT SURE ABOUT THIS GLOBAL VARAIBLE
-	private ViewFile viewFile = new ViewFile(); //NOT SURE ABOUT THIS GLOBAL VARAIBLE
-	private BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
-	private final BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile);
-	private final JButton btnAlg1 = new JButton("Alg 1");
-	private final JButton btnAlg2 = new JButton("Alg 2");
 	
-	public MainUI() {
+	BtnUpdateCmd btnUpdateView;
+	BtnOpenCmd btnOpenFile;
+	
+	public MainUI(JComponent comp, BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView, JButton btnAlg1, JButton btnAlg2) {
 		super("Text Mining");
+		this.btnOpenFile = btnOpenFile;
+		this.btnUpdateView = btnUpdateView;
 		getContentPane().setBackground(SystemColor.controlShadow);
 		this.setBounds(100, 100, 900, 665);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,14 +47,6 @@ public class MainUI extends JFrame implements Observer {
 		springLayout.putConstraint(SpringLayout.NORTH, btnUpdateView, 85, SpringLayout.NORTH, getContentPane());
 		springLayout.putConstraint(SpringLayout.WEST, btnUpdateView, 10, SpringLayout.WEST, getContentPane());
 		getContentPane().setLayout(springLayout);
-		
-		
-		//TextData txtData = new TextData();// changed to global variable need to over come this !!!!!!!!!BAD CODE!!!!!!!!!!!!!!
-		txtData.registerObserver(this);
-		Controller controller  = new Controller(txtData);
-		
-		
-
 
 		
 		this.add(btnUpdateView);
@@ -63,19 +54,14 @@ public class MainUI extends JFrame implements Observer {
 		getContentPane().add(btnAlg1);
 		getContentPane().add(btnAlg2);
 		
-		//ViewFile viewFile = new ViewFile();
-		springLayout.putConstraint(SpringLayout.NORTH, viewFile, 21, SpringLayout.NORTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.WEST, viewFile, 36, SpringLayout.EAST, btnUpdateView);
-		springLayout.putConstraint(SpringLayout.SOUTH, viewFile, -348, SpringLayout.SOUTH, getContentPane());
-		springLayout.putConstraint(SpringLayout.EAST, viewFile, -39, SpringLayout.EAST, getContentPane());
-		viewFile.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), SystemColor.controlText, SystemColor.textInactiveText, SystemColor.textInactiveText));
-		getContentPane().add(viewFile);
-		txtData.registerObserver(viewFile);
-		
-
+		springLayout.putConstraint(SpringLayout.NORTH, comp, 21, SpringLayout.NORTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.WEST, comp, 36, SpringLayout.EAST, btnUpdateView);
+		springLayout.putConstraint(SpringLayout.SOUTH, comp, -348, SpringLayout.SOUTH, getContentPane());
+		springLayout.putConstraint(SpringLayout.EAST, comp, -39, SpringLayout.EAST, getContentPane());
+		comp.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(0, 0, 0), SystemColor.controlText, SystemColor.textInactiveText, SystemColor.textInactiveText));
+		getContentPane().add(comp);
+	
 		this.setVisible(true); // display frame
-		
-
 	}
 
 	@Override
