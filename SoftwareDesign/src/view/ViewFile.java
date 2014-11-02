@@ -20,6 +20,7 @@ public class ViewFile extends JScrollPane implements Observer {
 		this.setViewportView(txtArea);
 		this.txtArea.setVisible(true);
 		this.txtArea.setEditable(false);
+		this.setSize(250,250);
 	}
 	
 	

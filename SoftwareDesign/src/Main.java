@@ -1,16 +1,20 @@
 
+import java.awt.BorderLayout;
 import java.io.IOException;
+
 import javax.swing.JButton;
+
 import opennlp.tools.util.InvalidFormatException;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
 import controller.Controller;
 import controller.FileOpenCommand;
 import controller.NLPTest;
-import view.BaseFrame;
+
+import view.ButtonPanel;
 import view.DisplayStats;
 import view.MainUI;
-import view.PanelWithOpenBtn;
+
 import view.ViewFile;
 import model.TextData;
 
@@ -33,9 +37,13 @@ public class Main {
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile);
 	JButton btnAlg1 = new JButton("Alg 1");
 	JButton btnAlg2 = new JButton("Alg 2");
-	MainUI ui = new MainUI(viewFile,btnOpenFile,btnUpdateView,btnAlg1, btnAlg2);
+	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView);
+	MainUI ui = new MainUI();
+	ui.add(viewFile,BorderLayout.EAST);
+	ui.add(btnPanel, BorderLayout.WEST);
 	txtData.registerObserver(ui);
 	txtData.registerObserver(viewFile);
+	txtData.registerObserver(btnPanel);
 	Controller controller  = new Controller(txtData);
 	
 	
