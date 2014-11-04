@@ -16,23 +16,25 @@ public class ButtonPanel extends JPanel implements Observer {
 	
 	BtnUpdateCmd btnUpdateView;
 	BtnOpenCmd btnOpenFile;
-	BtnAnalyseCmd btnAnalyse;
+
 	
-	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView, BtnAnalyseCmd btnAnalyse ) {
+	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView) {
 		// TODO Auto-generated constructor stub
 		this.btnOpenFile = btnOpenFile;
 		this.btnUpdateView = btnUpdateView;
+		
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
 		add(btnOpenFile);
 		add(btnUpdateView);
-		add(btnAnalyse);
+	
 	}
 	
 	public void addActionListener(ActionListener command) {
 		// TODO Auto-generated method stub
 	btnUpdateView.addActionListener(command);
 	btnOpenFile.addActionListener(command);
+	
 	}
 
 	public void actionPerformed(ActionEvent e) {

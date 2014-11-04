@@ -3,7 +3,6 @@ package controller;
 import javax.swing.JButton;
 
 import model.TextData;
-import view.ViewFile;
 
 public class BtnAnalyseCmd extends JButton implements Command {
 	
@@ -14,10 +13,12 @@ public class BtnAnalyseCmd extends JButton implements Command {
 		super(caption);
 		this.txtData = txtData;
 	}
+	
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-		
+		this.txtData.editText(" HAS NOW BEEN ANALYSED");
+		System.out.println("executing analyse");
 	}
 
 }

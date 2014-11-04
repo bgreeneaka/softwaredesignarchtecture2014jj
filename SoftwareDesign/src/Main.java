@@ -13,6 +13,7 @@ import controller.FileOpenCommand;
 import controller.NLPTest;
 import view.ButtonPanel;
 import view.DisplayStats;
+import view.ControlPanel;
 import view.MainUI;
 import view.ViewFile;
 import model.TextData;
@@ -34,18 +35,20 @@ public class Main {
 	ViewFile viewFile = new ViewFile();
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile);
-	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
-	JButton btnAlg1 = new JButton("Alg 1");
-	JButton btnAlg2 = new JButton("Alg 2");
-	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView,btnAnalyse);
+	//JButton btnAlg1 = new JButton("Alg 1");
+	//JButton btnAlg2 = new JButton("Alg 2");
+	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView);
+	ControlPanel ctrlPanel = new ControlPanel();
 	MainUI ui = new MainUI();
 	ui.add(viewFile,BorderLayout.EAST);
 	ui.add(btnPanel, BorderLayout.WEST);
+	ui.add(ctrlPanel,BorderLayout.SOUTH);
 	txtData.registerObserver(ui);
 	txtData.registerObserver(viewFile);
 	txtData.registerObserver(btnPanel);
+	txtData.registerObserver(ctrlPanel);
 	Controller controller  = new Controller(txtData);
-	
+	//NLPTest t = new NLPTest(); 
 	
 	}
 	

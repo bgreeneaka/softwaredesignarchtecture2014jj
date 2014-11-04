@@ -34,6 +34,16 @@ public class Controller {
 			action.execute();
 		}
 		
+	public class StrategyListner implements ActionListener {
+			//Action for when update is pushed
+			@Override
+		public void actionPerformed(ActionEvent e) {
+				String s = (String) e.getSource();
+				System.out.println(s);
+				//s.analyse();
+			}
+
+	}
 
 	}
 }
