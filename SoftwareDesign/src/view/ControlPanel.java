@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -19,26 +21,20 @@ import model.TextData;
 
 public class ControlPanel extends JPanel implements Observer {
 	
-
-	BtnAnalyseCmd btnAnalyse;
-	JComboBox<String> algcb;
-	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt
+	JButton btnAnalyse = new JButton();
+    JComboBox algcb = new JComboBox();
+	
 	
 	
 	public ControlPanel(){
-		TextData txtData = new TextData();
-		String[] choices = { "Algoritm 1","Algoritm 2", "Algoritm 3","Algoritm 4","Algoritm 5","Algoritm 6"};
-		algcb = new JComboBox<String>(choices);
-		//algcb.addItemListener(itemListener);
-		algcb.setVisible(true);
-	    add(algcb);
-		System.out.println("ControlPanelclass");
-		setLayout(new FlowLayout());
-		
-		setBackground(Color.GRAY);
-		
-		btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
-		add(btnAnalyse);
+		 setLayout(new FlowLayout());
+         setBackground(Color.GRAY);
+         algcb.addItem("NLPTest");
+         algcb.addItem("NLPTest2");
+         algcb.addItem("NLPTest3");
+         btnAnalyse.setText("Analyse");
+         add(algcb);
+         add(btnAnalyse);     
 	}
 	@Override
 	public void update(String str1) {
@@ -49,12 +45,12 @@ public class ControlPanel extends JPanel implements Observer {
 	@Override
 	public void addActionListener(ActionListener strategy) {
 			btnAnalyse.addActionListener(strategy);
-			algcb.addActionListener(strategy);
+			
 	}
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		Command action = (Command) e.getSource();
-		action.execute();
-	}
+
+    public void addItemListener(ItemListener item) {
+                    // TODO Auto-generated method stub
+    	algcb.addItemListener(item);
+    }
 
 }
