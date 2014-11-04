@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.* ;
 
+import controller.BtnAnalyseCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
 import controller.Command;
@@ -15,8 +16,9 @@ public class ButtonPanel extends JPanel implements Observer {
 	
 	BtnUpdateCmd btnUpdateView;
 	BtnOpenCmd btnOpenFile;
+	BtnAnalyseCmd btnAnalyse;
 	
-	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView) {
+	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView, BtnAnalyseCmd btnAnalyse ) {
 		// TODO Auto-generated constructor stub
 		this.btnOpenFile = btnOpenFile;
 		this.btnUpdateView = btnUpdateView;
@@ -24,6 +26,7 @@ public class ButtonPanel extends JPanel implements Observer {
 		setBackground(Color.GRAY);
 		add(btnOpenFile);
 		add(btnUpdateView);
+		add(btnAnalyse);
 	}
 	
 	public void addActionListener(ActionListener command) {
