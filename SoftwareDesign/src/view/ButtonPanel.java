@@ -24,6 +24,7 @@ public class ButtonPanel extends JPanel implements Observer {
 		this.btnUpdateView = btnUpdateView;
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
+		setBounds(25,25,25,25);
 		add(btnOpenFile);
 		add(btnUpdateView);
 		add(btnAnalyse);
@@ -34,12 +35,12 @@ public class ButtonPanel extends JPanel implements Observer {
 	btnUpdateView.addActionListener(command);
 	btnOpenFile.addActionListener(command);
 	}
-
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		Command action = (Command) e.getSource();
-		action.execute();
-	}
+//CAN BE removed
+//	public void actionPerformed(ActionEvent e) {
+//		// TODO Auto-generated method stub
+//		Command action = (Command) e.getSource();
+//		action.execute();
+//	}
 
 	@Override
 	public void update(String str1) {
