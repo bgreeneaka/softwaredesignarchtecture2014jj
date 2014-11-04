@@ -32,6 +32,7 @@ public class Controller {
 		public void actionPerformed(ActionEvent e) {
 			Command action = (Command) e.getSource();
 			action.execute();
+			System.out.println(e.getActionCommand());
 		}
 		
 	public class StrategyListner implements ActionListener {

@@ -21,14 +21,14 @@ public class ControlPanel extends JPanel implements Observer {
 	
 
 	BtnAnalyseCmd btnAnalyse;
-	
+	JComboBox<String> algcb;
 	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt
 	
 	
 	public ControlPanel(){
 		TextData txtData = new TextData();
 		String[] choices = { "Algoritm 1","Algoritm 2", "Algoritm 3","Algoritm 4","Algoritm 5","Algoritm 6"};
-		final JComboBox<String> algcb = new JComboBox<String>(choices);
+		algcb = new JComboBox<String>(choices);
 		//algcb.addItemListener(itemListener);
 		algcb.setVisible(true);
 	    add(algcb);
@@ -49,6 +49,7 @@ public class ControlPanel extends JPanel implements Observer {
 	@Override
 	public void addActionListener(ActionListener strategy) {
 			btnAnalyse.addActionListener(strategy);
+			algcb.addActionListener(strategy);
 	}
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
