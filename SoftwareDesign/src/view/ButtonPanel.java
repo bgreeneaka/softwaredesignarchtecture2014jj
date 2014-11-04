@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.* ;
 
-import controller.BtnAnalyseCmd;
+
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
 import controller.Command;

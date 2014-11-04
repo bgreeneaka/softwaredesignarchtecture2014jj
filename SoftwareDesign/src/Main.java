@@ -5,13 +5,13 @@ import java.io.IOException;
 import javax.swing.JButton;
 
 import opennlp.tools.util.InvalidFormatException;
-import controller.BtnAnalyseCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
 import controller.Controller;
 import controller.FileOpenCommand;
 import controller.NLPTest;
 import view.ButtonPanel;
+import view.DBControlsPanel;
 import view.DisplayStats;
 import view.ControlPanel;
 import view.MainUI;
@@ -39,15 +39,18 @@ public class Main {
 	//JButton btnAlg2 = new JButton("Alg 2");
 	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView);
 	ControlPanel ctrlPanel = new ControlPanel();
+	DBControlsPanel dbControls = new DBControlsPanel();
 	MainUI ui = new MainUI();
-	ui.add(viewFile,BorderLayout.EAST);
-	ui.add(btnPanel, BorderLayout.WEST);
+	ui.add(viewFile,BorderLayout.CENTER);
+	ui.add(btnPanel, BorderLayout.LINE_START);
+	ui.add(dbControls, BorderLayout.LINE_END);
 	ui.add(ctrlPanel,BorderLayout.SOUTH);
 	txtData.registerObserver(ui);
 	txtData.registerObserver(viewFile);
 	txtData.registerObserver(btnPanel);
-	txtData.registerObserver(ctrlPanel);
-	Controller controller  = new Controller(txtData);
+	Controller controller  = new Controller();
+	controller.addModel("textData",txtData);
+	controller.addListnersToModels();
 	//NLPTest t = new NLPTest(); 
 	
 	}
