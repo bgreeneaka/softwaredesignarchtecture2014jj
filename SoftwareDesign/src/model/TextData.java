@@ -20,6 +20,16 @@ public class TextData implements Subject {
 		observers = new ArrayList();
 	}
 
+	public void setTextData(String str1,String path,String algorithm,String dbms){
+		this.str1=str1;
+		this.path=path;
+		this.algorithm=algorithm;
+		this.dbms=dbms;
+	}
+	
+	public void setPath(String path){
+		this.path = path;
+	}
 	@Override
 	public void registerObserver(Observer observer) {
 		// Add observers to subject
@@ -53,7 +63,7 @@ public class TextData implements Subject {
 	 * Method to test the observer update
 	 */
 	public void editText(String strUpdate){
-		this.str1 = this.str1 + strUpdate;	
+		//this.str1 = this.str1 + strUpdate;	
 		notifyObservers();
 	}
 	

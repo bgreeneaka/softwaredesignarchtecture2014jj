@@ -49,7 +49,7 @@ public class Controller {
 		}
 	}
 	
-	public void addListnersToModels(){
+	public void addListnersToModels(){      
 		Iterator it = modelMap.entrySet().iterator();
 	    while (it.hasNext()) {
 	        Map.Entry pairs = (Map.Entry)it.next();

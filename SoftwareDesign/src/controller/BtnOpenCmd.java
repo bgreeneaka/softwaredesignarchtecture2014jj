@@ -18,6 +18,7 @@ public class BtnOpenCmd extends JButton implements Command {
 	
 	public BtnOpenCmd(String caption, ViewFile fileView, TextData txtData){
 		super(caption);
+		this.txtData = txtData;
 		this.fileView = fileView;
 		
 	}
@@ -25,6 +26,9 @@ public class BtnOpenCmd extends JButton implements Command {
 	@Override
 	public void execute() {
 		// opens file when execute is called. Selects file and reads txt from file. Adds to a string, this string sets the text of the view
+		
+		//this.txtData.path = "path";
+		
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.showOpenDialog(null);
 		File file = fileChooser.getSelectedFile();
@@ -44,8 +48,9 @@ public class BtnOpenCmd extends JButton implements Command {
 	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
-		//this.txtData.path = file.toString();
+		this.txtData.path = file.getPath();
+		this.txtData.notifyObservers();
 		this.fileView.setText(output);
 	}
-
+	
 }

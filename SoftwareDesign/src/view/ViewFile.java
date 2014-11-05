@@ -27,9 +27,9 @@ public class ViewFile extends JScrollPane implements Observer {
 	@Override
 	public void update(String str1,String path,String algorithm,String dbms) {
 		// Updates the testArea with new string. This also needs work but provides proof of concept
-		String output = "default string" + str1 + "File path is:"+path+"selected algorithm is:"+algorithm+"selected DBMS is:"+dbms;
+		String output = "Default string is:" + str1 + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
 		//this.txtArea.setText(str1 +this.txtArea.getText());	
-		this.txtArea.setText(this.txtArea.getText()+"/n"+output);
+		this.txtArea.setText(this.txtArea.getText()+"\n"+output);
 	}
 	
 	public String getText() {
