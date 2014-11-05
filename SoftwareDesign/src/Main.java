@@ -46,8 +46,6 @@ public class Main {
 	txtData.registerObserver(btnPanel);
 	
 	Controller controller  = new Controller(txtData);
-//	controller.addModel("textData",txtData);
-//	controller.addListnersToModels();
 	}
 	
 }
