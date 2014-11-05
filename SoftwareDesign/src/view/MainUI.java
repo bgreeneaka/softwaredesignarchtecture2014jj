@@ -28,12 +28,11 @@ public class MainUI extends JFrame implements Observer {
 		super("Text Mining");
 		setLayout(new BorderLayout());
 		getContentPane().setBackground(SystemColor.controlShadow);
-		this.setBounds(100, 100, 910, 650);
+		this.setBounds(100, 100, 1100, 725);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true); // display frame
 	}
 
-	@Override
 	public void update(String str1) {
 		// TODO Auto-generated method stub
 		
@@ -47,6 +46,12 @@ public class MainUI extends JFrame implements Observer {
 		// TODO Auto-generated method stub
 		Command action = (Command) e.getSource();
 		action.execute();
+	}
+
+	@Override
+	public void update(String str1, String path, String algorithm, String dbms) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

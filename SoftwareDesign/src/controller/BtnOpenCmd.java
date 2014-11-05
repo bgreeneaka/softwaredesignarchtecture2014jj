@@ -10,14 +10,15 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import model.TextData;
+import view.View;
 import view.ViewFile;
 
 public class BtnOpenCmd extends JButton implements Command {
 
-	private ViewFile fileView;
+	private View fileView;
 	private TextData txtData;
 	
-	public BtnOpenCmd(String caption, ViewFile fileView, TextData txtData){
+	public BtnOpenCmd(String caption, View fileView, TextData txtData){
 		super(caption);
 		this.txtData = txtData;
 		this.fileView = fileView;
@@ -51,8 +52,8 @@ public class BtnOpenCmd extends JButton implements Command {
 	    }
 		this.txtData.path = file.getPath();
 		this.txtData.notifyObservers();
-		this.fileView.setText(output);
+		this.fileView.setTextArea(output);
 	}
 	
 }
->>>>>>> refs/heads/BK
+

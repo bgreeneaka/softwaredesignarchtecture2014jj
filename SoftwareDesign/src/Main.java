@@ -37,15 +37,13 @@ public class Main {
 
 
 	
-	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", txtData);
-	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);	
 
 	String[] algoritmsCollection= {"alg1", "alg2","alg3"};
 
 
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
 
-	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile,txtData);
+	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",view,txtData);
 	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
 	CbAlgorithmCmd cbAlgoritm = new CbAlgorithmCmd(algoritmsCollection, txtData);
 
@@ -57,12 +55,11 @@ public class Main {
 	MainUI ui = new MainUI();
 	ui.add(view,BorderLayout.CENTER);
 	ui.add(btnPanel, BorderLayout.LINE_START);
-
 	ui.add(dbControls, BorderLayout.LINE_END);
 	ui.add(ctrlPanel,BorderLayout.SOUTH);
 
 	txtData.registerObserver(ui);
-	txtData.registerObserver((Observer) observerFactory.createObserver());
+	txtData.registerObserver((Observer) view);
 	txtData.registerObserver(btnPanel);
 
 	Controller controller  = new Controller(txtData);
