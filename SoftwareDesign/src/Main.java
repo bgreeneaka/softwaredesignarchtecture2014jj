@@ -32,7 +32,7 @@ public class Main {
 	View view = observerFactory.createObserver().getView();
 
 	
-	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", view);
+	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", txtData);
 	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);	
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
 	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView,btnAnalyse);

@@ -11,6 +11,8 @@ public class TextData implements Subject {
 	
 	public String str1 ="";
 	private ArrayList<Observer> observers;
+	private String txtData = "No txt Data loaded";
+	private String str;
 	
 	public TextData() {
 		// Constructor
@@ -33,7 +35,7 @@ public class TextData implements Subject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(str1);
+			o.update(txtData);
 		}	
 	}
 	
@@ -54,4 +56,11 @@ public class TextData implements Subject {
 		notifyObservers();
 	}
 	
+	public String getTxtData() {
+		return txtData;
+	}
+
+	public void setTxtData(String txtData) {
+		this.txtData = txtData;
+	}
 }

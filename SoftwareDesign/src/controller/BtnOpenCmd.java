@@ -8,6 +8,7 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
+import model.TextData;
 import view.Observer;
 import view.ObserverFactory;
 import view.View;
@@ -16,10 +17,12 @@ import view.ViewFile;
 public class BtnOpenCmd extends JButton implements Command {
 
 	private View fileView;
+	private TextData txtData;
 	
-	public BtnOpenCmd(String caption, View view){
+	public BtnOpenCmd(String caption,/* View view,*/TextData txtData){
 		super(caption);
-		this.fileView =  view;
+		//this.fileView =  view;
+		this.txtData = txtData;
 		
 	}
 	
@@ -46,7 +49,8 @@ public class BtnOpenCmd extends JButton implements Command {
 	        e.printStackTrace();
 	    }
 		
-		this.fileView.setTextArea(output);
+		//this.fileView.setTextArea(output);
+		this.txtData.setTxtData(output);
 	}
 
 }
