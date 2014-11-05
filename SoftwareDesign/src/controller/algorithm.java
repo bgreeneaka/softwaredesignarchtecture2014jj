@@ -1,6 +1,6 @@
 package controller;
 
-public interface algoritm {
+public interface algorithm {
 	
 	public void setAnalyseAlgoritm();
 

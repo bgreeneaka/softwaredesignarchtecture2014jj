@@ -8,7 +8,7 @@ import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.util.InvalidFormatException;
 
-public class NLPTest implements algoritm{
+public class NLPTest implements algorithm{
 
 	
 	public  NLPTest() throws InvalidFormatException,

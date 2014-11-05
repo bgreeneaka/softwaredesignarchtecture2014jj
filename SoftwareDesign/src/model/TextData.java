@@ -10,6 +10,9 @@ import view.Observer;
 public class TextData implements Subject {
 	
 	public String str1 ="";
+	public String path ="";
+	public String algorithm ="";
+	public String dbms ="";
 	private ArrayList<Observer> observers;
 	
 	public TextData() {
