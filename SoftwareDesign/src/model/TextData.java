@@ -36,7 +36,7 @@ public class TextData implements Subject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(str1);
+			o.update(str1,path,algorithm,dbms);
 		}	
 	}
 	

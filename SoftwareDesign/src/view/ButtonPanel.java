@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.* ;
 
-
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
 import controller.Command;
@@ -44,7 +43,7 @@ public class ButtonPanel extends JPanel implements Observer {
 	}
 
 	@Override
-	public void update(String str1) {
+	public void update(String str1,String path,String algorithm,String dbms) {
 		// TODO Auto-generated method stub
 		
 	}

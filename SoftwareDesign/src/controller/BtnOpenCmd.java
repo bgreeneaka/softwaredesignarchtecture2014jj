@@ -8,13 +8,15 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
+import model.TextData;
 import view.ViewFile;
 
 public class BtnOpenCmd extends JButton implements Command {
 
 	private ViewFile fileView;
+	private TextData txtData;
 	
-	public BtnOpenCmd(String caption, ViewFile fileView){
+	public BtnOpenCmd(String caption, ViewFile fileView, TextData txtData){
 		super(caption);
 		this.fileView = fileView;
 		
@@ -42,7 +44,7 @@ public class BtnOpenCmd extends JButton implements Command {
 	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
-		
+		//this.txtData.path = file.toString();
 		this.fileView.setText(output);
 	}
 

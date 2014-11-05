@@ -34,7 +34,7 @@ public class Main {
 	
 	ViewFile viewFile = new ViewFile();
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
-	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile);
+	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File", viewFile,txtData);
 	//JButton btnAlg1 = new JButton("Alg 1");
 	//JButton btnAlg2 = new JButton("Alg 2");
 	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView);

@@ -18,6 +18,7 @@ public class BtnUpdateCmd extends JButton implements Command {
 	public void execute() {
 		// TODO Auto-generated method stub
 		this.txtData.editText(" HAS NOW BEEN UPDATED");
+		
 	}
 
 }
