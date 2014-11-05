@@ -27,7 +27,7 @@ public class MainUI extends JFrame implements Observer {
 		super("Text Mining");
 		setLayout(new BorderLayout());
 		getContentPane().setBackground(SystemColor.controlShadow);
-		this.setBounds(100, 100, 900, 665);
+		this.setBounds(100, 100, 910, 650);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true); // display frame
 	}

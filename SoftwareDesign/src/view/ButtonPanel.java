@@ -35,12 +35,6 @@ public class ButtonPanel extends JPanel implements Observer {
 	btnUpdateView.addActionListener(command);
 	btnOpenFile.addActionListener(command);
 	}
-//CAN BE removed
-//	public void actionPerformed(ActionEvent e) {
-//		// TODO Auto-generated method stub
-//		Command action = (Command) e.getSource();
-//		action.execute();
-//	}
 
 	@Override
 	public void update(String str1) {

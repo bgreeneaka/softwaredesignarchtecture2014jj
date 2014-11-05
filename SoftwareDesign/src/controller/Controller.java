@@ -49,17 +49,17 @@ public class Controller {
 		}
 	}
 	
-	public void addListnersToModels(){
-		Iterator it = modelMap.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry pairs = (Map.Entry)it.next();
-	        System.out.println(pairs.getKey().toString());
-	        if(pairs.getKey().equals("textData")){
-	        	Object obj = pairs.getValue();
-	        	((TextData) obj).addUpdateListner(new commandListner());
-	        }
-	    }
-	}
+//	public void addListnersToModels(){
+//		Iterator it = modelMap.entrySet().iterator();
+//	    while (it.hasNext()) {
+//	        Map.Entry pairs = (Map.Entry)it.next();
+//	        System.out.println(pairs.getKey().toString());
+//	        if(pairs.getKey().equals("textData")){
+//	        	Object obj = pairs.getValue();
+//	        	((TextData) obj).addUpdateListner(new commandListner());
+//	        }
+//	    }
+//	}
 	
 //	public class itemListnerListner implements ItemListener  {
 //		//Action when item is selected from combo box

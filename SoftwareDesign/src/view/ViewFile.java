@@ -5,25 +5,25 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
-public class ViewFile extends JScrollPane implements Observer {
+public class ViewFile extends View implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt	
 	/*
 	 * Creates a panel might need to be changed
 	 */
 	public ViewFile() {
-		this.txtArea.setLineWrap(true);
-		this.txtArea.setPreferredSize(new Dimension(650,100));
-		JScrollBar scrollBar = new JScrollBar();
-		this.setRowHeaderView(scrollBar);
-		this.setViewportView(txtArea);
-		this.txtArea.setVisible(true);
-		this.txtArea.setEditable(false);
-		this.setSize(250,250);
+		JPanel panel = new JPanel();
+		txtArea.setLineWrap(true);
+		JScrollPane scroll = new JScrollPane(txtArea);
+		scroll.setPreferredSize(new Dimension(600,600));
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		panel.add(scroll);
+		this.add(panel);
 	}
-	
-	
+		
 	@Override
 	public void update(String str1) {
 		// Updates the testArea with new string. This also needs work but provides proof of concept
@@ -45,8 +45,13 @@ public class ViewFile extends JScrollPane implements Observer {
 		//updateButton.addActionListener(updateListner);
 	}
 
-	public void setText(String string){
+	public void setTextArea(String string){
 		this.txtArea.setText(string);
 	}
+	
+	public View getView(){
+		return this;	
+	}
+
 
 }
