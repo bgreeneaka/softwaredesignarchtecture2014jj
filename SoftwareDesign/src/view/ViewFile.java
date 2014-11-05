@@ -1,3 +1,4 @@
+
 package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -24,17 +25,25 @@ public class ViewFile extends View implements Observer {
 		this.add(panel);
 	}
 		
-	@Override
-	public void update(String str1) {
-		// Updates the testArea with new string. This also needs work but provides proof of concept
-		this.txtArea.setText(str1 +this.txtArea.getText());	
-	}
 	
 	public String getText() {
 		// This may not be required leave for the moment 
 		return txtArea.getText();
 	}
+
 	
+	public View getView(){
+		return this;	
+	}
+	
+	@Override
+	public void update(String str1,String path,String algorithm,String dbms) {
+		// Updates the testArea with new string. This also needs work but provides proof of concept
+		String output = "Default string is:" + str1 + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
+		//this.txtArea.setText(str1 +this.txtArea.getText());	
+		this.txtArea.setText(this.txtArea.getText()+"\n"+output);
+	}
+
 	/*
 	 * Add's action listener to the update button. This might be incorrect because it is in the observer and the subject
 	 * 
@@ -45,13 +54,9 @@ public class ViewFile extends View implements Observer {
 		//updateButton.addActionListener(updateListner);
 	}
 
-	public void setTextArea(String string){
+	public void setText(String string){
 		this.txtArea.setText(string);
 	}
-	
-	public View getView(){
-		return this;	
-	}
-
 
 }
+

@@ -18,13 +18,13 @@ public class ButtonPanel extends JPanel implements Observer {
 	BtnOpenCmd btnOpenFile;
 	BtnAnalyseCmd btnAnalyse;
 	
-	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView, BtnAnalyseCmd btnAnalyse ) {
+	public ButtonPanel(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnAnalyseCmd btnAnalyse) {
 		// TODO Auto-generated constructor stub
 		this.btnOpenFile = btnOpenFile;
 		this.btnUpdateView = btnUpdateView;
+		this.btnAnalyse= btnAnalyse;
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
-		setBounds(25,25,25,25);
 		add(btnOpenFile);
 		add(btnUpdateView);
 		add(btnAnalyse);
@@ -34,10 +34,19 @@ public class ButtonPanel extends JPanel implements Observer {
 		// TODO Auto-generated method stub
 	btnUpdateView.addActionListener(command);
 	btnOpenFile.addActionListener(command);
+	btnAnalyse.addActionListener(command);
 	}
 
+
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Command action = (Command) e.getSource();
+		action.execute();
+	}
+
+
 	@Override
-	public void update(String str1) {
+	public void update(String str1,String path,String algorithm,String dbms) {
 		// TODO Auto-generated method stub
 		
 	}

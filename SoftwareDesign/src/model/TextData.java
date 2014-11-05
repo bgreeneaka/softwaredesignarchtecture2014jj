@@ -10,15 +10,26 @@ import view.Observer;
 public class TextData implements Subject {
 	
 	public String str1 ="";
+	public String path ="";
+	public String algorithm ="";
+	public String dbms ="";
 	private ArrayList<Observer> observers;
-	private String txtData = "No txt Data loaded";
-	private String str;
 	
 	public TextData() {
 		// Constructor
 		observers = new ArrayList();
 	}
 
+	public void setTextData(String str1,String path,String algorithm,String dbms){
+		this.str1=str1;
+		this.path=path;
+		this.algorithm=algorithm;
+		this.dbms=dbms;
+	}
+	
+	public void setPath(String path){
+		this.path = path;
+	}
 	@Override
 	public void registerObserver(Observer observer) {
 		// Add observers to subject
@@ -35,7 +46,7 @@ public class TextData implements Subject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(txtData);
+			o.update(str1,path,algorithm,dbms);
 		}	
 	}
 	
@@ -52,15 +63,9 @@ public class TextData implements Subject {
 	 * Method to test the observer update
 	 */
 	public void editText(String strUpdate){
-		this.str1 = this.str1 + strUpdate;	
+		//this.str1 = this.str1 + strUpdate;	
 		notifyObservers();
 	}
 	
-	public String getTxtData() {
-		return txtData;
-	}
-
-	public void setTxtData(String txtData) {
-		this.txtData = txtData;
-	}
 }
+

@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.BufferedReader;
@@ -9,26 +10,26 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import model.TextData;
-import view.Observer;
-import view.ObserverFactory;
-import view.View;
 import view.ViewFile;
 
 public class BtnOpenCmd extends JButton implements Command {
 
-	private View fileView;
+	private ViewFile fileView;
 	private TextData txtData;
 	
-	public BtnOpenCmd(String caption,/* View view,*/TextData txtData){
+	public BtnOpenCmd(String caption, ViewFile fileView, TextData txtData){
 		super(caption);
-		//this.fileView =  view;
 		this.txtData = txtData;
+		this.fileView = fileView;
 		
 	}
 	
 	@Override
 	public void execute() {
 		// opens file when execute is called. Selects file and reads txt from file. Adds to a string, this string sets the text of the view
+		
+		//this.txtData.path = "path";
+		
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.showOpenDialog(null);
 		File file = fileChooser.getSelectedFile();
@@ -48,9 +49,10 @@ public class BtnOpenCmd extends JButton implements Command {
 	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
-		
-		//this.fileView.setTextArea(output);
-		this.txtData.setTxtData(output);
+		this.txtData.path = file.getPath();
+		this.txtData.notifyObservers();
+		this.fileView.setText(output);
 	}
-
+	
 }
+>>>>>>> refs/heads/BK
