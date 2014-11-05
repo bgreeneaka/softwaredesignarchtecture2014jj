@@ -45,9 +45,9 @@ public class Main {
 	txtData.registerObserver((Observer) observerFactory.createObserver());
 	txtData.registerObserver(btnPanel);
 	
-	Controller controller  = new Controller();
-	controller.addModel("textData",txtData);
-	controller.addListnersToModels();
+	Controller controller  = new Controller(txtData);
+//	controller.addModel("textData",txtData);
+//	controller.addListnersToModels();
 	}
 	
 }
