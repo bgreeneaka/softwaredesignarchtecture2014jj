@@ -3,7 +3,6 @@ package view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 
@@ -13,7 +12,6 @@ import model.TextData;
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
-import controller.Command;
 
 public class ButtonPanel extends JPanel implements Observer {
 	
