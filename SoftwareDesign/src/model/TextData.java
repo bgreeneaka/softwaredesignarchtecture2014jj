@@ -3,15 +3,17 @@ package model;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import controller.algorithm;
 import view.Observer;
 /*
  * This is the subject, the Observable object
  */
 public class TextData implements Subject {
 	
+	public algorithm algorithm;
 	public String data = "";
 	public String path ="";
-	public String algorithm ="";
+	public String algorithmString ="";
 	public String dbms ="";
 	private ArrayList<Observer> observers;
 	
@@ -26,13 +28,19 @@ public class TextData implements Subject {
 	public void setData(String data) {
 		this.data = data;
 	}
-
-	public String getAlgorithm() {
+	public void setAlgorithm(algorithm algorithm) {
+		this.algorithm = algorithm;
+	}
+	public String getAlgorithmString() {
+		return algorithmString;
+	}
+	public controller.algorithm getAlgorithm() {
+		// TODO Auto-generated method stub
 		return algorithm;
 	}
 
-	public void setAlgorithm(String algorithm) {
-		this.algorithm = algorithm;
+	public void setAlgorithmString(String algorithmString) {
+		this.algorithmString = algorithmString;
 	}
 
 	public String getDbms() {
@@ -46,10 +54,10 @@ public class TextData implements Subject {
 	public String getPath() {
 		return path;
 	}
-	public void setTextData(String txtData,String path,String algorithm,String dbms){
+	public void setTextData(String txtData,String path,String algorithmString,String dbms){
 		this.data=txtData;
 		this.path=path;
-		this.algorithm=algorithm;
+		this.algorithmString=algorithmString;
 		this.dbms=dbms;
 	}
 	
@@ -75,7 +83,7 @@ public class TextData implements Subject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(data,path,algorithm,dbms);
+			o.update(data,path,algorithmString,dbms);
 		}	
 	}
 	
@@ -103,5 +111,6 @@ public class TextData implements Subject {
 	public String getTxtData(){
 		return data;
 	}
+	
 }
 

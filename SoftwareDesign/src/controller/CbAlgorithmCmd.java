@@ -17,7 +17,7 @@ public class CbAlgorithmCmd extends JComboBox implements Command {
 public void execute() {
 	//this.txtData.algorithm ;
 	System.out.println("wwww");
-	this.txtData.algorithm = "test";	
+	this.txtData.setAlgorithmString("test");	
 	this.txtData.notifyObservers();
 }
 }

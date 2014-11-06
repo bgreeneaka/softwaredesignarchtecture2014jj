@@ -9,6 +9,11 @@ import java.awt.event.ItemListener;
 import javax.swing.*;
 
 import model.TextData;
+import controller.AlgChunker;
+import controller.AlgNameFinder;
+import controller.AlgPOSTagger;
+import controller.AlgSentenceDetector;
+import controller.AlgTokenizer;
 import controller.BtnAnalyseCmd;
 import controller.Command;
 
@@ -75,7 +80,30 @@ public class ControlPanel extends JPanel implements Observer {
 
 	
 	private void updateSubject() {
-		this.txtData.algorithm = alg;
+		//this.txtData.setAlgorithmString(alg);
+	
+		if (alg ==""){
+			
+		}
+		else if(alg =="Sentence Detector"){
+			this.txtData.setAlgorithm(new AlgSentenceDetector());
+		}
+		else if(alg =="Tokenizer"){
+			this.txtData.setAlgorithm(new AlgTokenizer());
+		}
+		else if(alg =="Name Finder"){
+			this.txtData.setAlgorithm(new AlgNameFinder());
+		}	
+		else if(alg =="POS Tagger"){
+			this.txtData.setAlgorithm(new AlgPOSTagger());
+		}
+		else if(alg =="Chunker"){
+			this.txtData.setAlgorithm(new AlgChunker());
+		}
+		else{
+			System.out.println("ERROR");
+		}
+		
 		this.txtData.notifyObservers();
 		System.out.println(alg);
 	}
