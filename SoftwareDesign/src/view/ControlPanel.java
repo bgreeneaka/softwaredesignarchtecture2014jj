@@ -28,9 +28,11 @@ public class ControlPanel extends JPanel implements Observer {
 
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
-		algcb.addItem("NLPTest");
-		algcb.addItem("NLPTest2");
-		algcb.addItem("NLPTest3");
+		algcb.addItem("Sentence Detector");
+		algcb.addItem("Tokenizer");
+		algcb.addItem("Name Finder");
+		algcb.addItem("POS Tagger");
+		algcb.addItem("Chunker");
 
 		add(algcb);
 		add(btnAnalyse);

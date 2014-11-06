@@ -6,6 +6,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import opennlp.tools.util.InvalidFormatException;
+import controller.AlgSentenceDetector;
+import controller.AlgTokenizer;
 import controller.BtnAnalyseCmd;
 import controller.BtnOpenCmd;
 import controller.BtnSelectDBMSCmd;
@@ -59,8 +61,8 @@ public class Main {
 	txtData.registerObserver(dbControls);
 	txtData.registerObserver(ctrlPanel);
 	
-	
-
+	AlgSentenceDetector SD = new AlgSentenceDetector();
+	AlgTokenizer TK = new AlgTokenizer();
 	Controller controller  = new Controller(txtData);
 
 	}

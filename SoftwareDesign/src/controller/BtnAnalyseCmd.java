@@ -7,6 +7,8 @@ import model.TextData;
 
 public class BtnAnalyseCmd extends JButton implements Command {
 	
+
+	private algorithm algorithm;
 	private TextData txtData;
 	
 	public BtnAnalyseCmd(String caption, TextData txtData) {
@@ -20,6 +22,7 @@ public class BtnAnalyseCmd extends JButton implements Command {
 		
 			// will call algorithm
 		// for testing
+		
 				System.out.println("Analyse Clicked");
 				this.txtData.notifyObservers();
 	}

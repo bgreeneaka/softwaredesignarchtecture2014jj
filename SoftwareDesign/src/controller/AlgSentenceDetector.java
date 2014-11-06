@@ -8,11 +8,17 @@ import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.util.InvalidFormatException;
 
-public class NLPTest implements algorithm{
-
+public class AlgSentenceDetector implements algorithm {
 	
-	public  NLPTest() throws InvalidFormatException,
+	public  AlgSentenceDetector() {
+		System.out.println("Running Sentence Detector");
+		
+	}
+
+	@Override
+	public void doAnalyseAlgoritm() throws InvalidFormatException,
 	IOException {
+		System.out.println("Running doAnalyseAlgorithm for Sentence Detector");
 	String paragraph = "Hi. How are you? This is Mike.";
  
 	// always start with a model, a model is learned from training data
@@ -28,12 +34,4 @@ public class NLPTest implements algorithm{
 	
 	
 }
-	
-@Override
-public void doAnalyseAlgoritm(){
-	
-	
 }
-}
-
-
