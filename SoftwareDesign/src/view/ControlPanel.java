@@ -62,11 +62,7 @@ public class ControlPanel extends JPanel implements Observer, Command {
 		System.out.println("wwww");
 		cbAlgorithm.addActionListener(strategy);
 	}
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		Command action = (Command) e.getSource();
-		action.execute();
-	}
+
 	public void addItemListener(ItemListener item) {
 		// TODO Auto-generated method stub
 		algcb.addItemListener(item);

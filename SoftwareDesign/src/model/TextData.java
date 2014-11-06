@@ -60,11 +60,16 @@ public class TextData implements Subject {
 	/*
 	 * Add an update listner to all subjects
 	 */
-	public void addUpdateListner(ActionListener updateListner) {
+	public void addCommandListner(ActionListener updateListner) {
 		for(Observer o: observers){
 			o.addActionListener(updateListner);
 		}
-		
+	}
+	
+	public void addStrategyListner(ActionListener strategyListner) {
+		for(Observer o: observers){
+			o.addActionListener(strategyListner);
+		}
 	}
 	/*
 	 * Method to test the observer update

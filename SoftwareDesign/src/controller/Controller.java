@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 import model.TextData;
 
-public class Controller {
+public class Controller implements ActionListener {
 	
 	private TextData txtData;
 	//TODO remove this parameter !fileView!
@@ -14,7 +14,8 @@ public class Controller {
 		// Constructor
 		//this.fileView = fileView;
 		this.txtData = txtData;
-		this.txtData.addUpdateListner(new CommandListner()); //Add update listener to the model. DO NOT KNOW IF THE LOGIC IS CORRECT HERE
+		this.txtData.addCommandListner(new CommandListner()); //Add update listener to the model. DO NOT KNOW IF THE LOGIC IS CORRECT HERE
+	//	this.txtData.addStrategyListner(new StrategyListner());
 	}
 
 //	public class UpdateListner implements ActionListener {
@@ -33,8 +34,21 @@ public class Controller {
 			Command action = (Command) e.getSource();
 			action.execute();
 		}
-		
+	}
+	
+//	public class StrategyListner implements ActionListener {
+//		//Action for when update is pushed
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			Strategy strategy = (Strategy) e.getSource();
+//			action.execute();
+//		}
+//	}
 
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

@@ -17,8 +17,9 @@ public class BtnAnalyseCmd extends JButton implements Command {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-				this.txtData.algorithm = "NLP1";
-				this.txtData.notifyObservers();
+//				this.txtData.algorithm = "NLP1";
+//				this.txtData.notifyObservers();
+		//SentenceDetectionStrategy sentence = new SentenceDetectionStrategy(this.txtData);
 	}
 
 }
