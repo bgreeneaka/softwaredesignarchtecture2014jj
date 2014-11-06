@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import opennlp.tools.util.InvalidFormatException;
 import controller.BtnAnalyseCmd;
 import controller.BtnOpenCmd;
+import controller.BtnSelectDBMSCmd;
 import controller.BtnUpdateCmd;
 import controller.CbAlgorithmCmd;
 import controller.Controller;
@@ -36,19 +37,15 @@ public class Main {
 	View view = observerFactory.createObserver().getView();
 
 
-	
-
-	String[] algoritmsCollection= {"alg1", "alg2","alg3"};
-
-
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",view,txtData);
 	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
-	CbAlgorithmCmd cbAlgoritm = new CbAlgorithmCmd(algoritmsCollection, txtData);
-	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView,btnAnalyse);
-
-	ControlPanel ctrlPanel = new ControlPanel(txtData);
-	DBControlsPanel dbControls = new DBControlsPanel(txtData);
+	BtnSelectDBMSCmd btnSelectDBMS = new BtnSelectDBMSCmd("Select", txtData);
+	
+	
+	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView);
+	ControlPanel ctrlPanel = new ControlPanel(btnAnalyse, txtData);
+	DBControlsPanel dbControls = new DBControlsPanel(btnSelectDBMS,txtData);
 
 	MainUI ui = new MainUI();
 	ui.add(view,BorderLayout.CENTER);
@@ -59,6 +56,10 @@ public class Main {
 	txtData.registerObserver(ui);
 	//txtData.registerObserver((Observer) view);
 	txtData.registerObserver(btnPanel);
+	txtData.registerObserver(dbControls);
+	txtData.registerObserver(ctrlPanel);
+	
+	
 
 	Controller controller  = new Controller(txtData);
 

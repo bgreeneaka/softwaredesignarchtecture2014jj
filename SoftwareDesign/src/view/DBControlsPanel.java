@@ -8,28 +8,33 @@ import java.awt.event.ItemListener;
 
 import javax.swing.*;
 
+import controller.BtnAnalyseCmd;
+import controller.BtnSelectDBMSCmd;
 import controller.Command;
 import model.TextData;
 
-public class DBControlsPanel extends JPanel implements Observer, Command {
-
-	JButton btnSelect = new JButton();
+public class DBControlsPanel extends JPanel implements Observer{
+	
 	JComboBox dbmscb = new JComboBox();
+	BtnSelectDBMSCmd btnSelectDBMS;	;
 	String dbms;
 	private TextData txtData = new TextData();
 
-	public DBControlsPanel(TextData txtData) {
+	public DBControlsPanel(BtnSelectDBMSCmd btnSelectDBMS,TextData txtData) {
 		// TODO Auto-generated constructor stub
+		this.btnSelectDBMS = btnSelectDBMS;
 		this.txtData = txtData;
+		
 		dbms = "";
+		
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
 		dbmscb.addItem("Oracle");
 		dbmscb.addItem("MySQL");
 		dbmscb.addItem("MonGO");
-		btnSelect.setText("Select");
+		
 		add(dbmscb);
-		add(btnSelect);
+		add(btnSelectDBMS);
 		dbmscb.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -42,7 +47,7 @@ public class DBControlsPanel extends JPanel implements Observer, Command {
 				// txtData.algorithm="dd";
 				// txtData.notifyObservers();
 				dbms = seletedDBMS;
-				execute();
+				updateSubject();
 			}
 		});
 	}
@@ -57,7 +62,7 @@ public class DBControlsPanel extends JPanel implements Observer, Command {
 	@Override
 	public void addActionListener(ActionListener selection) {
 		// TODO Auto-generated method stub
-		btnSelect.addActionListener(selection);
+		btnSelectDBMS.addActionListener(selection);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -71,12 +76,9 @@ public class DBControlsPanel extends JPanel implements Observer, Command {
 		dbmscb.addItemListener(item);
 	}
 
-	@Override
-	public void execute() {
+	private void updateSubject() {
 		this.txtData.dbms = dbms;
 		this.txtData.notifyObservers();
 		System.out.println(dbms);
-
 	}
-
 }

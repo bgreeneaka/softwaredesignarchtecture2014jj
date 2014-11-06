@@ -19,7 +19,33 @@ public class TextData implements Subject {
 		// Constructor
 		observers = new ArrayList();
 	}
+	public String getData() {
+		return data;
+	}
 
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getAlgorithm() {
+		return algorithm;
+	}
+
+	public void setAlgorithm(String algorithm) {
+		this.algorithm = algorithm;
+	}
+
+	public String getDbms() {
+		return dbms;
+	}
+
+	public void setDbms(String dbms) {
+		this.dbms = dbms;
+	}
+
+	public String getPath() {
+		return path;
+	}
 	public void setTextData(String txtData,String path,String algorithm,String dbms){
 		this.data=txtData;
 		this.path=path;

@@ -9,27 +9,29 @@ import java.awt.event.ItemListener;
 import javax.swing.*;
 
 import model.TextData;
-import controller.CbAlgorithmCmd;
+import controller.BtnAnalyseCmd;
 import controller.Command;
 
-public class ControlPanel extends JPanel implements Observer, Command {
+public class ControlPanel extends JPanel implements Observer {
 
-	JButton btnAnalyse = new JButton();
 	JComboBox algcb = new JComboBox();
+	BtnAnalyseCmd btnAnalyse;
 	String alg;
-
 	private TextData txtData = new TextData();
 
-	public ControlPanel(TextData txtData) {
+	public ControlPanel(BtnAnalyseCmd btnAnalyse, TextData txtData) {
 		// TODO Auto-generated constructor stub
+		this.btnAnalyse = btnAnalyse;
 		this.txtData = txtData;
+
 		alg = "";
+
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
 		algcb.addItem("NLPTest");
 		algcb.addItem("NLPTest2");
 		algcb.addItem("NLPTest3");
-		btnAnalyse.setText("Analyse");
+
 		add(algcb);
 		add(btnAnalyse);
 		algcb.addActionListener(new ActionListener() {
@@ -45,8 +47,8 @@ public class ControlPanel extends JPanel implements Observer, Command {
 				// txtData.algorithm="dd";
 				// txtData.notifyObservers();
 				alg = seletedAlgorithm;
-				execute();
-			}
+				updateSubject();
+							}
 		});
 	}
 
@@ -58,9 +60,9 @@ public class ControlPanel extends JPanel implements Observer, Command {
 	}
 
 	@Override
-	public void addActionListener(ActionListener strategy) {
-		btnAnalyse.addActionListener(strategy);
-
+	public void addActionListener(ActionListener command) {
+		btnAnalyse.addActionListener(command);
+	
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -69,14 +71,8 @@ public class ControlPanel extends JPanel implements Observer, Command {
 		action.execute();
 	}
 
-	public void addItemListener(ItemListener item) {
-		// TODO Auto-generated method stub
-		algcb.addItemListener(item);
-
-	}
-
-	@Override
-	public void execute() {
+	
+	private void updateSubject() {
 		this.txtData.algorithm = alg;
 		this.txtData.notifyObservers();
 		System.out.println(alg);

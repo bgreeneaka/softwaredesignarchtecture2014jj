@@ -3,25 +3,26 @@ package controller;
 import javax.swing.JButton;
 
 import model.TextData;
+import view.View;
 
+public class BtnSelectDBMSCmd extends JButton implements Command{
 
-public class BtnAnalyseCmd extends JButton implements Command {
-	
 	private TextData txtData;
 	
-	public BtnAnalyseCmd(String caption, TextData txtData) {
+	public BtnSelectDBMSCmd(String caption,  TextData txtData){
 		// TODO Auto-generated constructor stub
 		super(caption);
 		this.txtData = txtData;
+		
 	}
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
-			// will call algorithm
+		// will call DBMS
 		// for testing
-				System.out.println("Analyse Clicked");
-				this.txtData.notifyObservers();
+		System.out.println("selectDBMS Clicked");
+		// TODO Auto-generated method stub
+		this.txtData.notifyObservers();
+		
 	}
 
 }
