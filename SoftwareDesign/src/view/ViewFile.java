@@ -46,14 +46,15 @@ public class ViewFile extends View implements Observer {
 	 * Add's action listener to the update button. This might be incorrect because it is in the observer and the subject
 	 * 
 	 */
-	@Override
-	public void addActionListener(ActionListener updateListner) {
-		// TODO Auto-generated method stub
-		//updateButton.addActionListener(updateListner);
-	}
 
 	public void setText(String string){
 		this.txtArea.setText(string);
+	}
+
+	@Override
+	public void addActionListener(ActionListener updateListner) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

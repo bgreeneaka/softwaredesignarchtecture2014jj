@@ -9,12 +9,13 @@ import javax.swing.JComboBox;
 
 import model.Subject;
 import model.TextData;
+import model.TextSubject;
 
 public class Controller {
 	
-	private Subject txtData;
+	private TextSubject txtData;
 	
-	public Controller(TextData txtData) {
+	public Controller(TextSubject txtData) {
 		// Constructor
 		this.txtData = txtData;
 		this.txtData.addCommandListner(new CommandListner()); //Add Command listener to the model. 

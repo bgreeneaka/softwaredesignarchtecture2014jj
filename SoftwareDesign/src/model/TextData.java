@@ -6,11 +6,12 @@ import java.util.ArrayList;
 
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
+import view.IListner;
 import view.Observer;
 /*
  * This is the subject, the Observable object
  */
-public class TextData implements Subject {
+public class TextData  implements Subject, TextSubject {
 	
 	public String data = "";
 	public String path ="No File Selected";
@@ -100,20 +101,6 @@ public class TextData implements Subject {
 		notifyObservers();
 		}
 	
-	/*
-	 * Add an update listner to all subjects
-	 */
-//	public void addCommandListner(ActionListener updateListner) {
-//		for(Observer o: observers){
-//			o.addActionListener(updateListner);
-//		}
-//	}
-	
-//	public void addStrategyListner(ItemListener strategyListner) {
-//		for(Observer o: observers){
-//			o.addItemListener(strategyListner);
-//		}
-//	}
 
 	@Override
 	public void addCommandListner(CommandListner commandListner) {
@@ -130,5 +117,6 @@ public class TextData implements Subject {
 			o.addItemListener(strategyListner);
 		}
 	}
+
 }
 
