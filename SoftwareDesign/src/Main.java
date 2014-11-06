@@ -42,11 +42,9 @@ public class Main {
 
 
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
-
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",view,txtData);
 	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
 	CbAlgorithmCmd cbAlgoritm = new CbAlgorithmCmd(algoritmsCollection, txtData);
-
 	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView,btnAnalyse);
 
 	ControlPanel ctrlPanel = new ControlPanel(cbAlgoritm,txtData);

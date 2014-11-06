@@ -46,7 +46,7 @@ public class ButtonPanel extends JPanel implements Observer {
 
 
 	@Override
-	public void update(String str1,String path,String algorithm,String dbms) {
+	public void update(String txtData,String path,String algorithm,String dbms) {
 		// TODO Auto-generated method stub
 		
 	}

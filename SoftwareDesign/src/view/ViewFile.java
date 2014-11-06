@@ -9,11 +9,14 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import model.TextData;
+
 public class ViewFile extends View implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt	
 	/*
 	 * Creates a panel might need to be changed
+	 * !!!!!!!!!!!!!!!!!!!!NEED TO ADD SUBJECT TO OBSERVER AND REGISTER IT HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	 */
 	public ViewFile() {
 		JPanel panel = new JPanel();
@@ -37,11 +40,11 @@ public class ViewFile extends View implements Observer {
 	}
 	
 	@Override
-	public void update(String str1,String path,String algorithm,String dbms) {
+	public void update(String txtData,String path,String algorithm,String dbms) {
 		// Updates the testArea with new string. This also needs work but provides proof of concept
-		String output = "Default string is:" + str1 + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
+		String output = "Default string is:" + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
 		//this.txtArea.setText(str1 +this.txtArea.getText());	
-		this.txtArea.setText(this.txtArea.getText()+"\n"+output);
+		this.txtArea.setText(txtData+"\n"+output);
 	}
 
 	/*

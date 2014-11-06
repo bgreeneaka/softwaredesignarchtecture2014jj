@@ -16,7 +16,7 @@ public class BtnUpdateCmd extends JButton implements Command {
 
 	@Override
 	public void execute() {
-		this.txtData.str1 = "Update hit";
+		this.txtData.data = "Update hit";
 		// TODO Auto-generated method stub
 		//this.txtData.editText(" HAS NOW BEEN UPDATED");
 		this.txtData.notifyObservers();

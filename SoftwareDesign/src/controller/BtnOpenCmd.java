@@ -38,8 +38,9 @@ public class BtnOpenCmd extends JButton implements Command {
 		
 		try {
 	        Scanner sc = new Scanner(file);
-
+	        StringBuffer stringBuffer = new StringBuffer();
 	        while (sc.hasNextLine()) {
+	        	stringBuffer.append(sc);
 	            String i = sc.next();
 	            System.out.println(i);
 	            output += " "+ i;
@@ -50,9 +51,11 @@ public class BtnOpenCmd extends JButton implements Command {
 	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
-		this.txtData.path = file.getPath();
+		this.txtData.path = file.getPath();//BAD CODE SMELL
+		String p = txtData.path;	
+		//this.fileView.setTextArea(output);
+		this.txtData.setTextData(output, p, "algorithm", "dbms");
 		this.txtData.notifyObservers();
-		this.fileView.setTextArea(output);
 	}
 	
 }

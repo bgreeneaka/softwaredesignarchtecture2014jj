@@ -9,7 +9,7 @@ import view.Observer;
  */
 public class TextData implements Subject {
 	
-	public String str1 ="";
+	public String data = "";
 	public String path ="";
 	public String algorithm ="";
 	public String dbms ="";
@@ -20,8 +20,8 @@ public class TextData implements Subject {
 		observers = new ArrayList();
 	}
 
-	public void setTextData(String str1,String path,String algorithm,String dbms){
-		this.str1=str1;
+	public void setTextData(String txtData,String path,String algorithm,String dbms){
+		this.data=txtData;
 		this.path=path;
 		this.algorithm=algorithm;
 		this.dbms=dbms;
@@ -38,17 +38,24 @@ public class TextData implements Subject {
 
 	@Override
 	public void removeObserver(Observer observer) {
-		// remove observers
-		observers.remove(observer);
+		// remove observer
+		int i = observers.indexOf(observer);
+		if (i >= 0) {
+		observers.remove(i);
+		}
 	}
 
 	@Override
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(str1,path,algorithm,dbms);
+			o.update(data,path,algorithm,dbms);
 		}	
 	}
+	
+	public void txtDataChanged() {
+		notifyObservers();
+		}
 	
 	/*
 	 * Add an update listner to all subjects
@@ -67,5 +74,8 @@ public class TextData implements Subject {
 		notifyObservers();
 	}
 	
+	public String getTxtData(){
+		return data;
+	}
 }
 

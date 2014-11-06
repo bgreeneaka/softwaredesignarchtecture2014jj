@@ -51,7 +51,7 @@ public class ControlPanel extends JPanel implements Observer, Command {
 	}
 
 	@Override
-	public void update(String str1,String path,String algorithm,String dbms) {
+	public void update(String txtData,String path,String algorithm,String dbms) {
 		//
 		
 	}
