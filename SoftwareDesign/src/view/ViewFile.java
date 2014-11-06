@@ -18,7 +18,8 @@ public class ViewFile extends View implements Observer {
 	 * Creates a panel might need to be changed
 	 * !!!!!!!!!!!!!!!!!!!!NEED TO ADD SUBJECT TO OBSERVER AND REGISTER IT HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	 */
-	public ViewFile() {
+	public ViewFile(TextData txtData) {
+		txtData.registerObserver((Observer)this);
 		JPanel panel = new JPanel();
 		txtArea.setLineWrap(true);
 		JScrollPane scroll = new JScrollPane(txtArea);

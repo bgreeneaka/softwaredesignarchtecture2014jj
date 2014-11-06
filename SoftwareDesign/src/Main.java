@@ -32,7 +32,7 @@ public class Main {
 	TextData txtData = new TextData(); // (Model) Create new subject/ model which holds all data 
 	System.out.println("Txt Data Created");	//FOR TESTING
 	
-	ObserverFactory observerFactory = new ObserverFactory("File View");
+	ObserverFactory observerFactory = new ObserverFactory("File View", txtData);
 	View view = observerFactory.createObserver().getView();
 
 
@@ -57,7 +57,7 @@ public class Main {
 	ui.add(ctrlPanel,BorderLayout.SOUTH);
 
 	txtData.registerObserver(ui);
-	txtData.registerObserver((Observer) view);
+	//txtData.registerObserver((Observer) view);
 	txtData.registerObserver(btnPanel);
 
 	Controller controller  = new Controller(txtData);
