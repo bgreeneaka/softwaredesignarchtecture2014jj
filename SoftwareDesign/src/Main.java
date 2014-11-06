@@ -1,27 +1,16 @@
 
 import java.awt.BorderLayout;
 import java.io.IOException;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
 import opennlp.tools.util.InvalidFormatException;
-import controller.BtnAnalyseCmd;
+import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
-import controller.CbAlgorithmCmd;
 import controller.Controller;
-import controller.FileOpenCommand;
-import controller.NLPTest;
 import view.ButtonPanel;
 import view.DBControlsPanel;
-import view.DisplayStats;
-import view.ControlPanel;
 import view.MainUI;
-import view.Observer;
 import view.ObserverFactory;
 import view.View;
-import view.ViewFile;
 import model.TextData;
 
 
@@ -35,34 +24,22 @@ public class Main {
 	ObserverFactory observerFactory = new ObserverFactory("File View", txtData);
 	View view = observerFactory.createObserver().getView();
 
-
-	
-
 	String[] algoritmsCollection= {"alg1", "alg2","alg3"};
-
 
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Update View", txtData);
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",view,txtData);
-	BtnAnalyseCmd btnAnalyse = new BtnAnalyseCmd("Analyse", txtData);
+	BtnProcessCmd btnProcess = new BtnProcessCmd("Process", txtData);
+
+	ButtonPanel btnPanel = new ButtonPanel(txtData);
+	btnPanel.addBtnCommands(btnOpenFile, btnUpdateView, btnProcess);
 	
-	CbAlgorithmCmd cbAlgoritm = new CbAlgorithmCmd(algoritmsCollection, txtData);
-	
-	ButtonPanel btnPanel = new ButtonPanel(txtData/*btnOpenFile,btnUpdateView,btnAnalyse*/);
-	btnPanel.addBtnCommands(btnOpenFile, btnUpdateView, btnAnalyse,cbAlgoritm);
-	
-	ControlPanel ctrlPanel = new ControlPanel(cbAlgoritm,txtData);
 	DBControlsPanel dbControls = new DBControlsPanel();
 
-	MainUI ui = new MainUI();
+	MainUI ui = new MainUI(txtData);
 	ui.add(view,BorderLayout.CENTER);
 	ui.add(btnPanel, BorderLayout.LINE_START);
 	ui.add(dbControls, BorderLayout.LINE_END);
-	ui.add(ctrlPanel,BorderLayout.SOUTH);
-
-	txtData.registerObserver(ui);
-	//txtData.registerObserver((Observer) view);
-	txtData.registerObserver(btnPanel);
-
+	
 	Controller controller  = new Controller(txtData);
 
 	}

@@ -28,9 +28,6 @@ public class BtnOpenCmd extends JButton implements Command {
 	@Override
 	public void execute() {
 		// opens file when execute is called. Selects file and reads txt from file. Adds to a string, this string sets the text of the view
-		
-		//this.txtData.path = "path";
-		
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.showOpenDialog(null);
 		File file = fileChooser.getSelectedFile();
@@ -51,11 +48,8 @@ public class BtnOpenCmd extends JButton implements Command {
 	    catch (FileNotFoundException e) {
 	        e.printStackTrace();
 	    }
-		this.txtData.path = file.getPath();//BAD CODE SMELL
-		String p = txtData.path;	
-		//this.fileView.setTextArea(output);
-		this.txtData.setTextData(output, p, "algorithm", "dbms");
-		this.txtData.notifyObservers();
+		this.txtData.setPath(file.getPath());     
+		this.txtData.setData(output);
 	}
 	
 }

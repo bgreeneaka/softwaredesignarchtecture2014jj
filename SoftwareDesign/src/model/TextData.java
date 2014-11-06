@@ -1,8 +1,8 @@
 package model;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
-
 import view.Observer;
 /*
  * This is the subject, the Observable object
@@ -10,26 +10,65 @@ import view.Observer;
 public class TextData implements Subject {
 	
 	public String data = "";
-	public String path ="";
+	public String path ="No File Selected";
 	public String algorithm ="";
 	public String dbms ="";
 	private ArrayList<Observer> observers;
+	private int stringCount = 0;
 	
 	public TextData() {
 		// Constructor
 		observers = new ArrayList();
 	}
+	
+	public String getData(){
+		return data;
+	}
+	
+	public void setData(String data) {
+		this.data = data;
+		notifyObservers();
+	}
 
-	public void setTextData(String txtData,String path,String algorithm,String dbms){
-		this.data=txtData;
-		this.path=path;
-		this.algorithm=algorithm;
-		this.dbms=dbms;
+	public String getAlgorithm() {
+		return algorithm;
+	}
+
+	public void setAlgorithm(String algorithm) {
+		this.algorithm = algorithm;
+	}
+
+	public String getDbms() {
+		return dbms;
+	}
+
+	public void setDbms(String dbms) {
+		this.dbms = dbms;
+	}
+
+	public int getStringCount() {
+		return stringCount;
+	}
+
+	public void setStringCount(int stringCount) {
+		this.stringCount = stringCount;
+	}
+
+	public String getPath() {
+		return path;
 	}
 	
 	public void setPath(String path){
 		this.path = path;
 	}
+
+	public void setAllTextData(String txtData,String path,String algorithm,String dbms){
+		this.data=txtData;
+		this.path=path;
+		this.algorithm=algorithm;
+		this.dbms=dbms;
+	}
+
 	@Override
 	public void registerObserver(Observer observer) {
 		// Add observers to subject
@@ -53,6 +92,7 @@ public class TextData implements Subject {
 		}	
 	}
 	
+	//This should be removed not used in the project!!!!!!!!!!!!!!!!!!!!!!!!!!
 	public void txtDataChanged() {
 		notifyObservers();
 		}
@@ -66,21 +106,10 @@ public class TextData implements Subject {
 		}
 	}
 	
-	public void addStrategyListner(ActionListener strategyListner) {
+	public void addStrategyListner(ItemListener strategyListner) {
 		for(Observer o: observers){
-			o.addActionListener(strategyListner);
+			o.addItemListener(strategyListner);
 		}
-	}
-	/*
-	 * Method to test the observer update
-	 */
-	public void editText(String strUpdate){
-		//this.str1 = this.str1 + strUpdate;	
-		notifyObservers();
-	}
-	
-	public String getTxtData(){
-		return data;
 	}
 }
 

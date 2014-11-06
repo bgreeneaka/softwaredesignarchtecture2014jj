@@ -15,9 +15,7 @@ public class FileOpenCommand extends JMenuItem implements Command {
 		// TODO Auto-generated method stub
 		System.out.println("openfile"); // diagnostic
 		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.showOpenDialog(this);
-	
-		
+		fileChooser.showOpenDialog(this);	
 	}
 
 }

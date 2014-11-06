@@ -10,38 +10,32 @@ import opennlp.tools.util.InvalidFormatException;
 import model.TextData;
 
 public  class SentenceDetectionStrategy implements ProcessStrategy {
-	
-	//private ProcessAlgorithm processAlgorithm;
-	private TextData txtData;
-	
-	public SentenceDetectionStrategy(TextData txtData) {
+
+	public SentenceDetectionStrategy() {
 		// TODO Auto-generated constructor stub
-		this.txtData = txtData;
 	}
 	
-
+	//needs some work but logic is correct and working
 	@Override
-	public void process() throws InvalidFormatException, IOException {
+	public void process(TextData txtData) throws InvalidFormatException, IOException {
 		// TODO Auto-generated method stub
 		
-		String text = this.txtData.getTxtData();
+		String str = txtData.getData();
 		
-		InputStream is = new FileInputStream("C:/Users/bart/git/softwaredesignarchtecture2014jj/SoftwareDesign/en-sent.bin");
+		InputStream is = new FileInputStream("C:/Users/Admin/git/SoftwareDesign/en-sent.bin");
 		SentenceModel model = new SentenceModel(is);
 		SentenceDetectorME sdetector = new SentenceDetectorME(model);
 	 
-		String sentences[] = sdetector.sentDetect(text);
+		String sentences[] = sdetector.sentDetect(str);
 	 
 		System.out.println(sentences[0]);
 		System.out.println(sentences[1]);
-		String str = "";
+		String updateString = "";
 		for(int i = 0; i < sentences.length; i++){
-			str = "\n" + sentences[i];
-		}
-		
+			updateString += "\n" + sentences[i];
+		}		
 		is.close();
-//		this.txtData.setTextData(str, "path", "algorithm", "dbms");
-//		this.txtData.notifyObservers();
+		txtData.setData(updateString);
 	}
 
 }
