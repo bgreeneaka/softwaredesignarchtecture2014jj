@@ -10,7 +10,7 @@ import opennlp.tools.util.InvalidFormatException;
 
 public class NLPTest implements algorithm{
 
-	
+	/*
 	public  NLPTest() throws InvalidFormatException,
 	IOException {
 	String paragraph = "Hi. How are you? This is Mike.";
@@ -27,10 +27,26 @@ public class NLPTest implements algorithm{
 	is.close();
 	
 	
-}
+}*/
+	public  NLPTest(){
+		super();
+	}
 	
 @Override
-public void setAnalyseAlgoritm(){
+public void setAnalyseAlgoritm(String path)throws InvalidFormatException,
+IOException {
+String paragraph = "Hi. How are you? This is Mike.";
+
+// always start with a model, a model is learned from training data
+InputStream is = new FileInputStream(path);
+SentenceModel model = new SentenceModel(is);
+SentenceDetectorME sdetector = new SentenceDetectorME(model);
+
+String sentences[] = sdetector.sentDetect(paragraph);
+
+System.out.println(sentences[0]);
+System.out.println(sentences[1]);
+is.close();
 	
 	
 }
