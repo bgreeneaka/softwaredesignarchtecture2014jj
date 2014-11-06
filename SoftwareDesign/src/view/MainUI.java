@@ -3,15 +3,17 @@ package view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+
 import javax.swing.*;
-import model.TextData;
+
+import model.Subject;
 import java.awt.BorderLayout;
 import java.awt.SystemColor;
 
 
 public class MainUI extends JFrame implements Observer {
 	
-	public MainUI(TextData txtData) {
+	public MainUI(Subject txtData) {
 		super("Text Mining");
 		txtData.registerObserver((Observer)this);
 		setLayout(new BorderLayout());

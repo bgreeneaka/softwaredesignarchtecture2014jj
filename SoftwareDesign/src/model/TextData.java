@@ -3,6 +3,9 @@ package model;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
+
+import controller.Controller.CommandListner;
+import controller.Controller.StrategyListner;
 import view.Observer;
 /*
  * This is the subject, the Observable object
@@ -100,13 +103,29 @@ public class TextData implements Subject {
 	/*
 	 * Add an update listner to all subjects
 	 */
-	public void addCommandListner(ActionListener updateListner) {
+//	public void addCommandListner(ActionListener updateListner) {
+//		for(Observer o: observers){
+//			o.addActionListener(updateListner);
+//		}
+//	}
+	
+//	public void addStrategyListner(ItemListener strategyListner) {
+//		for(Observer o: observers){
+//			o.addItemListener(strategyListner);
+//		}
+//	}
+
+	@Override
+	public void addCommandListner(CommandListner commandListner) {
+		// TODO Auto-generated method stub
 		for(Observer o: observers){
-			o.addActionListener(updateListner);
+			o.addActionListener(commandListner);
 		}
 	}
-	
-	public void addStrategyListner(ItemListener strategyListner) {
+
+	@Override
+	public void addStrategyListner(StrategyListner strategyListner) {
+		// TODO Auto-generated method stub
 		for(Observer o: observers){
 			o.addItemListener(strategyListner);
 		}

@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.JPanel;
 
+import model.Subject;
 import model.TextData;
 
 ;
@@ -9,9 +10,9 @@ import model.TextData;
 public class ObserverFactory {
 	
 	public String type;
-	public TextData txtData;
+	public Subject txtData;
 	
-	public ObserverFactory(String type, TextData txtData) {
+	public ObserverFactory(String type, Subject txtData) {
 		// TODO Auto-generated constructor stub
 		this.type = type;
 		this.txtData = txtData;

@@ -3,8 +3,10 @@ package view;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
+
 import javax.swing.*;
-import model.TextData;
+
+import model.Subject;
 
 public class ViewFile extends View implements Observer {
 	
@@ -13,7 +15,7 @@ public class ViewFile extends View implements Observer {
 	 * Creates a panel 
 	 * 
 	 */
-	public ViewFile(TextData txtData) {
+	public ViewFile(Subject txtData) {
 		txtData.registerObserver((Observer)this);
 		JPanel panel = new JPanel();
 		txtArea.setLineWrap(true);

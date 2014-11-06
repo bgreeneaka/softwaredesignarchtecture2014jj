@@ -4,12 +4,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+
 import javax.swing.JComboBox;
+
+import model.Subject;
 import model.TextData;
 
 public class Controller {
 	
-	private TextData txtData;
+	private Subject txtData;
 	
 	public Controller(TextData txtData) {
 		// Constructor

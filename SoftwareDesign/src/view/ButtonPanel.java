@@ -9,6 +9,7 @@ import java.awt.event.ItemListener;
 
 import javax.swing.* ;
 
+import model.Subject;
 import model.TextData;
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
@@ -21,10 +22,10 @@ public class ButtonPanel extends JPanel implements Observer {
 	private BtnOpenCmd btnOpenFile;
 	private BtnProcessCmd btnAnalyse;
 	private JComboBox algComboBox = new JComboBox();
-	private TextData txtData;
+	private Subject txtData;
 	private JPanel borderPanel = new JPanel();
 	
-	public ButtonPanel(TextData txtData) {
+	public ButtonPanel(Subject txtData) {
 		txtData.registerObserver((Observer)this);
 		this.txtData = txtData;
 		setLayout(new FlowLayout());

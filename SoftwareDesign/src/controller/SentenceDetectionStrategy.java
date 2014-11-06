@@ -3,9 +3,11 @@ package controller;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.util.InvalidFormatException;
+import model.Subject;
 import model.TextData;
 
 public  class SentenceDetectionStrategy implements ProcessStrategy {
@@ -16,7 +18,7 @@ public  class SentenceDetectionStrategy implements ProcessStrategy {
 	
 	//needs some work but logic is correct and working
 	@Override
-	public void process(TextData txtData) throws InvalidFormatException, IOException {
+	public void process(Subject txtData) throws InvalidFormatException, IOException {
 		// TODO Auto-generated method stub
 		
 		String str = txtData.getData();
