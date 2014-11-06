@@ -9,7 +9,7 @@ import java.awt.event.ItemListener;
 import javax.swing.*;
 
 import model.TextData;
-import controller.CbAlgorithmCmd;
+
 import controller.Command;
 
 public class ControlPanel extends JPanel implements Observer, Command {
@@ -17,12 +17,12 @@ public class ControlPanel extends JPanel implements Observer, Command {
 	JButton btnAnalyse = new JButton();
 	JComboBox algcb = new JComboBox();
 	String alg;
-	CbAlgorithmCmd cbAlgorithm;
-	public TextData txtData = new TextData();
-	public ControlPanel(CbAlgorithmCmd cbAlgorithm, TextData txtData) {
+	
+	private TextData txtData = new TextData();
+	public ControlPanel(TextData txtData) {
 		// TODO Auto-generated constructor stub
 		this.txtData = txtData;
-		this.cbAlgorithm = cbAlgorithm;
+		
 		alg="";
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
@@ -30,7 +30,7 @@ public class ControlPanel extends JPanel implements Observer, Command {
 		algcb.addItem("NLPTest2");
 		algcb.addItem("NLPTest3");
 		btnAnalyse.setText("Analyse");
-		add(cbAlgorithm);
+		
 		add(algcb);
 		add(btnAnalyse);
 		algcb.addActionListener(new ActionListener() {
@@ -38,12 +38,6 @@ public class ControlPanel extends JPanel implements Observer, Command {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox jcmbAloritms = (JComboBox) e.getSource();
 				String seletedAlgorithm = (String) jcmbAloritms.getSelectedItem();
-				//datePattern_Current = seletedDate;
-				//showDateinLabel();
-				//this.txtData.algorithm=seletedAlgorithm;
-				//this.txtData.notifyObservers();
-				//txtData.algorithm="dd";
-				//txtData.notifyObservers();
 				alg=seletedAlgorithm;
 				execute();
 			}
@@ -59,8 +53,7 @@ public class ControlPanel extends JPanel implements Observer, Command {
 	@Override
 		public void addActionListener(ActionListener strategy) {
 		btnAnalyse.addActionListener(strategy);
-		System.out.println("wwww");
-		cbAlgorithm.addActionListener(strategy);
+		
 	}
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -70,7 +63,7 @@ public class ControlPanel extends JPanel implements Observer, Command {
 	public void addItemListener(ItemListener item) {
 		// TODO Auto-generated method stub
 		algcb.addItemListener(item);
-		cbAlgorithm.addItemListener(item);
+		
 	}
 
 	@Override

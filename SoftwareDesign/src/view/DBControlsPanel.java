@@ -2,30 +2,48 @@ package view;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 
 import javax.swing.*;
 
-public class DBControlsPanel extends JPanel implements Observer {
+import controller.Command;
+import model.TextData;
+
+public class DBControlsPanel extends JPanel implements Observer, Command {
 
 	JButton btnSelect = new JButton();
-	JComboBox comboBox = new JComboBox();
+	JComboBox DBcb = new JComboBox();
+	String db;
+	private TextData txtData = new TextData();
 
-	public DBControlsPanel() {
+	public DBControlsPanel(TextData txtData) {
 		// TODO Auto-generated constructor stub
+		this.txtData = txtData;
+		db = "";
 		setLayout(new FlowLayout());
 		setBackground(Color.GRAY);
-		comboBox.addItem("Oracle");
-		comboBox.addItem("MySQL");
-		comboBox.addItem("MonGO");
+		DBcb.addItem("Oracle");
+		DBcb.addItem("MySQL");
+		DBcb.addItem("MonGO");
 		btnSelect.setText("Select");
-		add(comboBox);
+		add(DBcb);
 		add(btnSelect);
+		DBcb.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				JComboBox jcmbDB = (JComboBox) e.getSource();
+				String seletedDB = (String) jcmbDB.getSelectedItem();
+				db = seletedDB;
+				execute();
+			}
+		});
 	}
 
 	@Override
-	public void update(String txtData,String path,String algorithm,String dbms) {
+	public void update(String txtData, String path, String algorithm,
+			String dbms) {
 		// TODO Auto-generated method stub
 
 	}
@@ -35,10 +53,23 @@ public class DBControlsPanel extends JPanel implements Observer {
 		// TODO Auto-generated method stub
 		btnSelect.addActionListener(selection);
 	}
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Command action = (Command) e.getSource();
+		action.execute();
+	}
 
 	public void addItemListener(ItemListener item) {
 		// TODO Auto-generated method stub
-		comboBox.addItemListener(item);
+		DBcb.addItemListener(item);
+	}
+
+	@Override
+	public void execute() {
+		this.txtData.dbms=db;
+		this.txtData.notifyObservers();
+		System.out.println(db);
+		
 	}
 
 }
