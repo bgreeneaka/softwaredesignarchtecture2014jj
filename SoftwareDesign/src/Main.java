@@ -47,8 +47,8 @@ public class Main {
 	CbAlgorithmCmd cbAlgoritm = new CbAlgorithmCmd(algoritmsCollection, txtData);
 	ButtonPanel btnPanel = new ButtonPanel(btnOpenFile,btnUpdateView,btnAnalyse);
 
-	ControlPanel ctrlPanel = new ControlPanel(cbAlgoritm,txtData);
-	DBControlsPanel dbControls = new DBControlsPanel();
+	ControlPanel ctrlPanel = new ControlPanel(txtData);
+	DBControlsPanel dbControls = new DBControlsPanel(txtData);
 
 	MainUI ui = new MainUI();
 	ui.add(view,BorderLayout.CENTER);
