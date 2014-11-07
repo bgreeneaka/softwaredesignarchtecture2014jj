@@ -7,10 +7,11 @@ import java.awt.event.ItemListener;
 
 import javax.swing.*;
 
-public class DBControlsPanel extends JPanel implements Observer {
+public class DBControlsPanel extends View implements Observer {
 
 	JButton btnSelect = new JButton();
 	JComboBox comboBox = new JComboBox();
+	JTextArea txtArea = new JTextArea();
 
 	public DBControlsPanel() {
 		// TODO Auto-generated constructor stub
@@ -22,6 +23,7 @@ public class DBControlsPanel extends JPanel implements Observer {
 		btnSelect.setText("Select");
 		add(comboBox);
 		add(btnSelect);
+		this.setVisible(true);
 	}
 
 	@Override

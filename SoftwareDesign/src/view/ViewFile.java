@@ -52,7 +52,7 @@ public class ViewFile extends View implements Observer {
 	}
 
 	@Override
-	public void addActionListener(ActionListener updateListner) {
+	public void addActionListener(ActionListener commandListner) {
 		// TODO Auto-generated method stub
 		
 	}

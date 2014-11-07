@@ -1,12 +1,9 @@
 package model;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
-import view.IListner;
 import view.Observer;
 /*
  * This is the subject, the Observable object
