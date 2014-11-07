@@ -56,7 +56,6 @@ public class ButtonPanel extends JPanel implements Observer {
 	}
 	
 	public void addBtnCommands(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnProcessCmd btnAnalyse/* CbAlgorithmCmd cbAlgorithm*/){
-		JPanel Panel = new JPanel();
 		this.btnOpenFile = btnOpenFile;
 		this.btnUpdateView = btnUpdateView;
 		this.btnAnalyse= btnAnalyse;
@@ -72,6 +71,5 @@ public class ButtonPanel extends JPanel implements Observer {
 		algComboBox.addItem("Detect Tokens");
 		borderPanel.add(label);
 		borderPanel.add(algComboBox);	
-		this.add(borderPanel);
 	}
 }

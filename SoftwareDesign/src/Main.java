@@ -33,7 +33,7 @@ public class Main {
 	ButtonPanel btnPanel = new ButtonPanel(txtData);
 	btnPanel.addBtnCommands(btnOpenFile, btnUpdateView, btnProcess);
 	
-	DBControlsPanel dbControls = new DBControlsPanel();
+	DBControlsPanel dbControls = new DBControlsPanel(txtData);
 
 	MainUI ui = new MainUI(txtData);
 	ui.add(view,BorderLayout.CENTER);

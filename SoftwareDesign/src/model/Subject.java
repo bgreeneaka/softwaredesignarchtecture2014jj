@@ -21,4 +21,7 @@ public interface Subject {
 	
 	public void setAlgorithm(String string);
 	
+	public String getDbms();
+	
+	public void setDbms(String dbms);
 }

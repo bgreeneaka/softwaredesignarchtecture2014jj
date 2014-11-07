@@ -10,7 +10,7 @@ import model.Subject;
 
 public class ViewFile extends View implements Observer {
 	
-	private JTextArea txtArea = new JTextArea("txt area created"); // New  txt area with default txt	
+	private JTextArea txtArea = new JTextArea("Open File to process"); // New  txt area with default txt	
 	/*
 	 * Creates a panel 
 	 * 
@@ -20,7 +20,7 @@ public class ViewFile extends View implements Observer {
 		JPanel panel = new JPanel();
 		txtArea.setLineWrap(true);
 		JScrollPane scroll = new JScrollPane(txtArea);
-		scroll.setPreferredSize(new Dimension(600,600));
+		scroll.setPreferredSize(new Dimension(650,675));
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panel.add(scroll);
 		this.add(panel);

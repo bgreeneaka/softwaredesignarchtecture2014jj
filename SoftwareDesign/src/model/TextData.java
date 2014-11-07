@@ -13,7 +13,7 @@ public class TextData  implements Subject, TextSubject {
 	public String data = "";
 	public String path ="No File Selected";
 	public String algorithm ="";
-	public String dbms ="";
+	public String dbms ="No database yet created";
 	private ArrayList<Observer> observers;
 	private int stringCount = 0;
 	
