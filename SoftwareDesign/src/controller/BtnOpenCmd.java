@@ -9,6 +9,7 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
+import model.Subject;
 import model.TextData;
 import view.View;
 import view.ViewFile;
@@ -16,12 +17,11 @@ import view.ViewFile;
 public class BtnOpenCmd extends JButton implements Command {
 
 	private View fileView;
-	private TextData txtData;
+	private Subject txtData;
 	
-	public BtnOpenCmd(String caption, View fileView, TextData txtData){
+	public BtnOpenCmd(String caption, Subject txtData){
 		super(caption);
 		this.txtData = txtData;
-		this.fileView = fileView;
 		
 	}
 	

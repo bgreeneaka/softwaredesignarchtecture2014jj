@@ -1,15 +1,18 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.swing.JButton;
+
+import model.Subject;
 import opennlp.tools.util.InvalidFormatException;
-import model.TextData;
 
 public class BtnProcessCmd extends JButton implements Command {
 	
-	private TextData txtData;
-	
-	public BtnProcessCmd(String caption, TextData txtData) {
+	private Subject txtData;
+	private ProcessStrategy processStrategy ;
+	//Context context = new Context(new SentenceDetectionStrategy());
+	public BtnProcessCmd(String caption, Subject txtData) {
 		// TODO Auto-generated constructor stub
 		super(caption);
 		this.txtData = txtData;
@@ -17,15 +20,8 @@ public class BtnProcessCmd extends JButton implements Command {
 
 	@Override
 	public void execute() throws InvalidFormatException, IOException {
-		// TODO Auto-generated method stub
-		String selectedAlgorithm = this.txtData.getAlgorithm();
-		if(selectedAlgorithm.equalsIgnoreCase("Detect Sentence")){
-			Context context = new Context(new SentenceDetectionStrategy());
-			context.executeStrategy(this.txtData);
-		}else{
-			System.out.println("No algorithm Selected");
-		}
 		
+		processStrategy= this.txtData.getProcessStrategy();
+		processStrategy.doAnalyseAlgoritm(txtData);
 	}
-
 }
