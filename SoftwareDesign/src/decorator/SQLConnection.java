@@ -12,7 +12,7 @@ public class SQLConnection extends DataBaseDecorator {
 	@Override
 	public String description() {
 		// TODO Auto-generated method stub
-		return "SQL" + dataBase.description();
+		return "SQL " + dataBase.description();
 	}
 
 }

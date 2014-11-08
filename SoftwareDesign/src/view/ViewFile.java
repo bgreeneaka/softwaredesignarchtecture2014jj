@@ -10,18 +10,25 @@ import model.Subject;
 
 public class ViewFile extends View implements Observer {
 	
+	private Subject txtData;
+	
 	private JTextArea txtArea = new JTextArea("Open File to process"); // New  txt area with default txt	
 	/*
 	 * Creates a panel 
 	 * 
 	 */
 	public ViewFile(Subject txtData) {
-		txtData.registerObserver((Observer)this);
+		this.txtData = txtData;
+		txtData.registerObserver((Observer)this);		
 		JPanel panel = new JPanel();
+		
 		txtArea.setLineWrap(true);
+		txtArea.setEditable(false);
+		
 		JScrollPane scroll = new JScrollPane(txtArea);
 		scroll.setPreferredSize(new Dimension(650,675));
 		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
 		panel.add(scroll);
 		this.add(panel);
 	}
@@ -36,10 +43,11 @@ public class ViewFile extends View implements Observer {
 	}
 	
 	@Override
-	public void update(String txtData,String path,String algorithm,String dbms) {
+	public void update(/*String txtData,String path,String algorithm,String dbms*/) {
 		// Updates the testArea with new string. This also needs work but provides proof of concept
-		String output = "Default string is:" + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
-		this.txtArea.setText(txtData+"\n"+output);
+//		String output = "Default string is:" + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
+		this.txtArea.setText(txtData.getData());
+		
 	}
 
 	/*

@@ -3,20 +3,23 @@ package model;
 import java.util.ArrayList;
 
 import controller.Controller.CommandListner;
+//import controller.Controller.DatabaseListner;
 import controller.Controller.StrategyListner;
 //import controller.Controller.StrategyListner;
 import controller.ProcessStrategy;
+import decorator.Database;
 import view.Observer;
 /*
  * This is the subject, the Observable object
  */
 public class TextData  implements Subject, TextSubject {
 	
-	public ProcessStrategy processStrategy;
-	public String data = "";
-	public String path ="No File Selected";
-	public String algorithm ="";
-	public String dbms ="No database yet created";
+	private ProcessStrategy processStrategy;
+	private Database dataBase;
+	private String data = "";
+	private String path ="";
+	private String algorithm ="";
+	private String dbms ="";
 	private ArrayList<Observer> observers;
 	private int stringCount = 0;
 	
@@ -40,6 +43,7 @@ public class TextData  implements Subject, TextSubject {
 
 	public void setAlgorithm(String algorithm) {
 		this.algorithm = algorithm;
+		
 	}
 
 	public String getDbms() {
@@ -48,6 +52,7 @@ public class TextData  implements Subject, TextSubject {
 
 	public void setDbms(String dbms) {
 		this.dbms = dbms;
+		notifyObservers();
 	}
 
 	public int getStringCount() {
@@ -56,6 +61,7 @@ public class TextData  implements Subject, TextSubject {
 
 	public void setStringCount(int stringCount) {
 		this.stringCount = stringCount;
+		notifyObservers();
 	}
 
 	public String getPath() {
@@ -64,6 +70,7 @@ public class TextData  implements Subject, TextSubject {
 	
 	public void setPath(String path){
 		this.path = path;
+		notifyObservers();
 	}
 	
 
@@ -75,12 +82,26 @@ public class TextData  implements Subject, TextSubject {
 		this.processStrategy = processStrategy;
 		notifyObservers();
 	}
+	
+	@Override
+	public Database getDatabase() {
+		// TODO Auto-generated method stub
+		return dataBase;
+	}
+
+	@Override
+	public void setDataBase(Database dataBase) {
+		// TODO Auto-generated method stub
+		this.dataBase = dataBase;
+	}
+
 
 	public void setAllTextData(String txtData,String path,String algorithm,String dbms){
 		this.data=txtData;
 		this.path=path;
 		this.algorithm=algorithm;
-		this.dbms=dbms;
+		this.dbms=this.dataBase.description();
+		notifyObservers();
 	}
 
 	@Override
@@ -102,7 +123,7 @@ public class TextData  implements Subject, TextSubject {
 	public void notifyObservers() {
 		// notify all observers on update
 		for(Observer o: observers){
-			o.update(data,path,algorithm,dbms);
+			o.update();
 		}	
 	}
 	
@@ -127,6 +148,15 @@ public class TextData  implements Subject, TextSubject {
 			o.addItemListener(strategyListner);
 		}
 	}
+
+
+//	@Override
+//	public void addDataBaseListner(DatabaseListner databaseListner) {
+//		// TODO Auto-generated method stub
+//		for(Observer o: observers){
+//			o.addItemListener(databaseListner);
+//		}
+//	}
 
 }
 

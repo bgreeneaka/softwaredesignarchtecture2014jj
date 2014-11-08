@@ -10,18 +10,11 @@ import java.awt.event.ItemListener;
 import javax.swing.* ;
 
 import model.Subject;
-import model.TextData;
-import controller.AlgChunker;
-import controller.AlgNameFinder;
-import controller.AlgPOSTagger;
-import controller.AlgSentenceDetector;
-import controller.AlgTokenizer;
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
-import controller.Command;
 
-public class ButtonPanel extends JPanel implements Observer {
+public class ButtonPanel extends View implements Observer {
 	
 	private BtnUpdateCmd btnUpdateView;
 	private BtnOpenCmd btnOpenFile;
@@ -55,17 +48,14 @@ public class ButtonPanel extends JPanel implements Observer {
 	public void addItemListener(ItemListener item) {
 		// TODO Auto-generated method stub
 	algComboBox.addItemListener(item);
-//		System.out.println("item action listner activated");
-//		alg = (String) algComboBox.getSelectedItem();
-//		selectAlgorithm();
 	}
 
 	@Override
-	public void update(String txtData,String path,String algorithm,String dbms) {
+	public void update(/*String txtData,String path,String algorithm,String dbms*/) {
 		// TODO Auto-generated method stub	
 	}
 	
-	public void addBtnCommands(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnProcessCmd btnAnalyse/* CbAlgorithmCmd cbAlgorithm*/){
+	public void addBtnCommands(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnProcessCmd btnAnalyse){
 		this.btnOpenFile = btnOpenFile;
 		this.btnUpdateView = btnUpdateView;
 		this.btnAnalyse= btnAnalyse;
@@ -79,52 +69,14 @@ public class ButtonPanel extends JPanel implements Observer {
 		algComboBox.addItem("Select");
 		algComboBox.addItem("Sentence Detector");
 		algComboBox.addItem("Tokenizer");
-		algComboBox.addItem("Name Finder");
+		algComboBox.addItem("Parser");
 		algComboBox.addItem("POS Tagger");
 		algComboBox.addItem("Chunker");
 		borderPanel.add(label);
 		borderPanel.add(algComboBox);	
 	}
 	
-//	public void actionPerformed(ActionEvent e) {
-//		
-//		 alg = (String) algComboBox.getSelectedItem();
-//		 selectAlgorithm();
-//    }
-	
-//	private void selectAlgorithm() {
-//		//this.txtData.setAlgorithmString(alg);
-//	
-//		if (alg ==""){
-//			System.out.println("ERROR");
-//		}
-//		else if(alg =="Sentence Detector"){
-//			System.out.println("Sentence Detector");
-//		this.txtData.setProcessStrategy(new AlgSentenceDetector());
-//		}
-//		else if(alg =="Tokenizer"){
-//			System.out.println("Tokenizer");
-//			this.txtData.setProcessStrategy(new AlgTokenizer());
-//			
-//		}
-//		else if(alg =="Name Finder"){
-//			System.out.println("Name Finder");
-//			this.txtData.setProcessStrategy(new AlgNameFinder());
-//		}	
-//		else if(alg =="POS Tagger"){
-//			System.out.println("POS Tagger");
-//			this.txtData.setProcessStrategy(new AlgPOSTagger());
-//		}
-//		else if(alg =="Chunker"){
-//			System.out.println("Chunker");
-//			this.txtData.setProcessStrategy(new AlgChunker());
-//		}
-//		else{
-//			System.out.println("ERROR");
-//		}
-//		
-//		this.txtData.notifyObservers();
-//		System.out.println(alg);
-//	}
-
+	public View getView(){
+		return this;	
+	}
 }

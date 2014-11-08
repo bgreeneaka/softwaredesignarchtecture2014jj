@@ -18,11 +18,16 @@ public class ObserverFactory {
 		this.txtData = txtData;
 	}
 	public View createObserver(){
+		
 		if(type.equalsIgnoreCase("File View")){
 			return new ViewFile(txtData);
-		}/*else if(type.equalsIgnoreCase("Results View")){
-			return new ResultsView();
-		}*/
+		}
+		else if(type.equalsIgnoreCase("Status")){
+			return new Status(txtData);
+		}
+		else if(type.equalsIgnoreCase("btn Panel")){
+			return new ButtonPanel(txtData);
+		}
 		return null;
 		
 	}

@@ -19,10 +19,9 @@ public class BtnOpenCmd extends JButton implements Command {
 	private View fileView;
 	private Subject txtData;
 	
-	public BtnOpenCmd(String caption, View fileView, Subject txtData){
+	public BtnOpenCmd(String caption, Subject txtData){
 		super(caption);
 		this.txtData = txtData;
-		this.fileView = fileView;
 		
 	}
 	

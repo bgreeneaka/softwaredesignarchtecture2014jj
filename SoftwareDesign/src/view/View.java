@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public abstract class View extends JPanel {
 
@@ -8,9 +8,9 @@ public abstract class View extends JPanel {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setTextArea(String str){
-		
-	}
+//	public void setTextArea(String str){
+//		
+//	}
 	
 	public View getView(){
 		return null;	
