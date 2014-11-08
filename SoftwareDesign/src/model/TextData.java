@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
+//import controller.Controller.StrategyListner;
+import controller.ProcessStrategy;
 import view.Observer;
 /*
  * This is the subject, the Observable object
  */
 public class TextData  implements Subject, TextSubject {
 	
+	public ProcessStrategy processStrategy;
 	public String data = "";
 	public String path ="No File Selected";
 	public String algorithm ="";
@@ -61,6 +64,16 @@ public class TextData  implements Subject, TextSubject {
 	
 	public void setPath(String path){
 		this.path = path;
+	}
+	
+
+	public ProcessStrategy getProcessStrategy() {
+		return processStrategy;
+	}
+
+	public void setProcessStrategy(ProcessStrategy processStrategy) {
+		this.processStrategy = processStrategy;
+		notifyObservers();
 	}
 
 	public void setAllTextData(String txtData,String path,String algorithm,String dbms){

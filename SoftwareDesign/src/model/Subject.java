@@ -1,5 +1,7 @@
 package model;
 
+import controller.AlgSentenceDetector;
+import controller.ProcessStrategy;
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
 import view.Observer;
@@ -24,4 +26,8 @@ public interface Subject {
 	public String getDbms();
 	
 	public void setDbms(String dbms);
+	
+	public void setProcessStrategy(ProcessStrategy processStrategy);
+	
+	public ProcessStrategy getProcessStrategy();
 }

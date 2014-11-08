@@ -14,6 +14,7 @@ import model.TextSubject;
 public class Controller {
 	
 	private TextSubject txtData;
+	String alg;
 	
 	public Controller(TextSubject txtData) {
 		// Constructor
@@ -41,8 +42,45 @@ public class Controller {
 		public void itemStateChanged(ItemEvent event) {
 			JComboBox comboBox = (JComboBox) event.getSource();
 			Object item = event.getItem();
-			txtData.setAlgorithm(item.toString());
+			alg = item.toString();
+			selectAlgorithm();
+			//txtData.setAlgorithm(item.toString());
 		}
+	}
+	
+	private void selectAlgorithm() {
+		//this.txtData.setAlgorithmString(alg);
+	
+		if (alg ==""){
+			System.out.println("ERROR");
+		}
+		else if(alg =="Sentence Detector"){
+			System.out.println("Sentence Detector");
+		this.txtData.setProcessStrategy(new AlgSentenceDetector());
+		}
+		else if(alg =="Tokenizer"){
+			System.out.println("Tokenizer");
+			this.txtData.setProcessStrategy(new AlgTokenizer());
+			
+		}
+		else if(alg =="Name Finder"){
+			System.out.println("Name Finder");
+			this.txtData.setProcessStrategy(new AlgNameFinder());
+		}	
+		else if(alg =="POS Tagger"){
+			System.out.println("POS Tagger");
+			this.txtData.setProcessStrategy(new AlgPOSTagger());
+		}
+		else if(alg =="Chunker"){
+			System.out.println("Chunker");
+			this.txtData.setProcessStrategy(new AlgChunker());
+		}
+		else{
+			System.out.println("ERROR");
+		}
+		
+		//this.txtData.notifyObservers();
+		System.out.println(alg);
 	}
 }
 

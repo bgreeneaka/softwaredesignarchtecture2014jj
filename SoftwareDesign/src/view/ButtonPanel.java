@@ -11,6 +11,11 @@ import javax.swing.* ;
 
 import model.Subject;
 import model.TextData;
+import controller.AlgChunker;
+import controller.AlgNameFinder;
+import controller.AlgPOSTagger;
+import controller.AlgSentenceDetector;
+import controller.AlgTokenizer;
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
@@ -24,6 +29,7 @@ public class ButtonPanel extends JPanel implements Observer {
 	private JComboBox algComboBox = new JComboBox();
 	private Subject txtData;
 	private JPanel borderPanel = new JPanel();
+//	String alg;
 	
 	public ButtonPanel(Subject txtData) {
 		txtData.registerObserver((Observer)this);
@@ -43,11 +49,15 @@ public class ButtonPanel extends JPanel implements Observer {
 	btnUpdateView.addActionListener(command);
 	btnOpenFile.addActionListener(command);
 	btnAnalyse.addActionListener(command);
+	
 	}
 	
 	public void addItemListener(ItemListener item) {
 		// TODO Auto-generated method stub
-		algComboBox.addItemListener(item);
+	algComboBox.addItemListener(item);
+//		System.out.println("item action listner activated");
+//		alg = (String) algComboBox.getSelectedItem();
+//		selectAlgorithm();
 	}
 
 	@Override
@@ -67,9 +77,54 @@ public class ButtonPanel extends JPanel implements Observer {
 	public void addComboBox(){
 		JLabel label = new JLabel("Select an algrothim to process text      ");
 		algComboBox.addItem("Select");
-		algComboBox.addItem("Detect Sentence");
-		algComboBox.addItem("Detect Tokens");
+		algComboBox.addItem("Sentence Detector");
+		algComboBox.addItem("Tokenizer");
+		algComboBox.addItem("Name Finder");
+		algComboBox.addItem("POS Tagger");
+		algComboBox.addItem("Chunker");
 		borderPanel.add(label);
 		borderPanel.add(algComboBox);	
 	}
+	
+//	public void actionPerformed(ActionEvent e) {
+//		
+//		 alg = (String) algComboBox.getSelectedItem();
+//		 selectAlgorithm();
+//    }
+	
+//	private void selectAlgorithm() {
+//		//this.txtData.setAlgorithmString(alg);
+//	
+//		if (alg ==""){
+//			System.out.println("ERROR");
+//		}
+//		else if(alg =="Sentence Detector"){
+//			System.out.println("Sentence Detector");
+//		this.txtData.setProcessStrategy(new AlgSentenceDetector());
+//		}
+//		else if(alg =="Tokenizer"){
+//			System.out.println("Tokenizer");
+//			this.txtData.setProcessStrategy(new AlgTokenizer());
+//			
+//		}
+//		else if(alg =="Name Finder"){
+//			System.out.println("Name Finder");
+//			this.txtData.setProcessStrategy(new AlgNameFinder());
+//		}	
+//		else if(alg =="POS Tagger"){
+//			System.out.println("POS Tagger");
+//			this.txtData.setProcessStrategy(new AlgPOSTagger());
+//		}
+//		else if(alg =="Chunker"){
+//			System.out.println("Chunker");
+//			this.txtData.setProcessStrategy(new AlgChunker());
+//		}
+//		else{
+//			System.out.println("ERROR");
+//		}
+//		
+//		this.txtData.notifyObservers();
+//		System.out.println(alg);
+//	}
+
 }
