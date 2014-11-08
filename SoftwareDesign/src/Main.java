@@ -21,18 +21,17 @@ public class Main {
 	// TODO Auto-generated method stub
 
 	TextData txtData = new TextData(); // (Model) Create new subject/ model which holds all data 
-	System.out.println("Txt Data Created");	//FOR TESTING
 	
-	ObserverFactory observerFactory2 = new ObserverFactory("Status", txtData);
-	System.out.println("Status Created");
-	View status = observerFactory2.createObserver().getView();
-	System.out.println("Status added");
+	ObserverFactory observerFactory_fileView, observerFactory_status, observerFactory_btnPanel;
+
+	observerFactory_fileView = new ObserverFactory("File View", txtData);
+	View view = observerFactory_fileView.createObserver().getView();
 	
-	ObserverFactory observerFactory = new ObserverFactory("File View", txtData);
-	View view = observerFactory.createObserver().getView();
+	observerFactory_status = new ObserverFactory("Status", txtData);
+	View status = observerFactory_status.createObserver().getView();
 	
-	ObserverFactory observerFactory3 = new ObserverFactory("btn panel", txtData);
-	View btnPanel = observerFactory3.createObserver().getView();
+	observerFactory_btnPanel = new ObserverFactory("btn panel", txtData);
+	View btnPanel = observerFactory_btnPanel.createObserver().getView();
 	
 	
 	DBControlsPanel dbControls = new DBControlsPanel(txtData);

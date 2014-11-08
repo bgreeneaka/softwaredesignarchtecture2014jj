@@ -4,6 +4,7 @@ import controller.AlgSentenceDetector;
 import controller.ProcessStrategy;
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
+import decorator.Database;
 import view.Observer;
 
 public interface Subject {
@@ -27,7 +28,23 @@ public interface Subject {
 	
 	public void setDbms(String dbms);
 	
+	public String getPath();
+	
 	public void setProcessStrategy(ProcessStrategy processStrategy);
 	
 	public ProcessStrategy getProcessStrategy();
+	
+	public Database getDatabase();
+	
+	public void setDataBase(Database dataBase);
+	
+	public int getSentenceCount();
+	
+	public void setSentenceCount(int sentenceCount);
+	
+	public int getTokenCount();
+	
+	public void setTokenCount(int stringCount);
+	
+	
 }

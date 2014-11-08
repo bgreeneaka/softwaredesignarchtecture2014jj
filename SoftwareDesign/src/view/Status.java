@@ -13,10 +13,11 @@ public class Status extends View implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("Program status"); // New  txt area with default txt
 	private JLabel status = new JLabel("File status");
-	
+	private Subject txtData;
 	public Status(Subject txtData) {
 		// TODO Auto-generated constructor stub
 		txtData.registerObserver((Observer)this);
+		this.txtData = txtData;
 		setBackground(Color.GRAY);
 		
 		JPanel panel = new JPanel();
@@ -35,10 +36,10 @@ public class Status extends View implements Observer {
 	}
 
 	@Override
-	public void update(/*String txtData, String path, String algorithm,
-			String dbms*/) {
+	public void update() {
 		// TODO Auto-generated method stub
-		
+		this.txtArea.setText("The Algorithm you have selected is : " + txtData.getAlgorithm() + "\n" +
+		"The path of the file opened is : " + this.txtData.getPath() + "\n" + "The Database you have created is : " + this.txtData.getDbms());
 	}
 
 	@Override

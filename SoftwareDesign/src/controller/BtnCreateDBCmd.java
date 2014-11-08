@@ -30,13 +30,13 @@ public class BtnCreateDBCmd extends JButton implements Command {
 		switch(selectedDataBase)
 		{
 		case "Oracle":
-			txtData.setDbms(new OracleConnection(database).description());
+			txtData.setDataBase(new OracleConnection(database));
 			break;
 		case "SQL":
-			txtData.setDbms(new SQLConnection(database).description());
+			txtData.setDataBase(new SQLConnection(database));
 			break;
 		case "Mongo":
-			txtData.setDbms(new MongoConnection(database).description());
+			txtData.setDataBase(new MongoConnection(database));
 			break;
 		default :
 			System.out.println("No db created");

@@ -4,26 +4,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
-
 import javax.swing.JComboBox;
-
-import decorator.Database;
-import decorator.SQLConnection;
-import model.Subject;
-import model.TextData;
 import model.TextSubject;
 
 public class Controller {
 	
 	private TextSubject txtData;
-	String alg, dataBase;
+	private String alg;
 	
 	public Controller(TextSubject txtData) {
 		// Constructor
 		this.txtData = txtData;
 		this.txtData.addCommandListner(new CommandListner()); //Add Command listener to the model. 
 		this.txtData.addStrategyListner(new StrategyListner()); //Add Strategy listener to the model. 
-		//this.txtData.addDataBaseListner(new DatabaseListner());
+
 	}
 	
 	public class CommandListner implements ActionListener {
@@ -41,90 +35,50 @@ public class Controller {
 	}
 	
 	public class StrategyListner implements ItemListener {
-		//Adds selected algrothm to the subject when selected from the comboBox
+		//Listener for items selected from drop down menus
 		public void itemStateChanged(ItemEvent event) {
 			JComboBox comboBox = (JComboBox) event.getSource();
 			Object item = event.getItem();
-			if(item.equals("Oracle")||item.equals("SQL")||item.equals("Momngo")){
+			if(item.equals("Oracle")||item.equals("SQL")||item.equals("Mongo")){
 				txtData.setDbms(item.toString()); 
 			}else{
 				alg = item.toString();
+				txtData.setAlgorithm(item.toString()); 
 				selectAlgorithm();
 			}
 		}
 	}
 	
-//	public class DatabaseListner implements ItemListener {
-//		//Adds selected algrothm to the subject when selected from the comboBox
-//		public void itemStateChanged(ItemEvent event) {
-//			JComboBox comboBox = (JComboBox) event.getSource();
-//			Object item = event.getItem();
-//			txtData.setDbms(item.toString()); 
-//			//selectBB();
-//		}
-//	}
-	
-//	private void selectBB() {
-//		//this.txtData.setAlgorithmString(alg);
-//	
-//		if (dataBase ==""){
-//			System.out.println("ERROR");
-//		}
-//		else if(dataBase =="Oracle"){
-//			System.out.println("Sentence Detector");
-//		this.txtData.setProcessStrategy(new AlgSentenceDetector());
-//		}
-//		else if(dataBase =="SQL"){
-//			System.out.println("SQL");
-//			Database database = new Database();
-//			this.txtData.setDbms(new SQLConnection(database).description());;
-//			
-//		}
-//		else if(dataBase =="Mongo"){
-//			System.out.println("Parser");
-//			this.txtData.setProcessStrategy(new AlgParser());
-//		}	
-//		else{
-//			System.out.println("ERROR");
-//		}
-//		
-//		//this.txtData.notifyObservers();
-//		System.out.println(alg);
-//	}
-	
+
 	private void selectAlgorithm() {
-		//this.txtData.setAlgorithmString(alg);
-	
+
 		if (alg ==""){
 			System.out.println("ERROR");
 		}
 		else if(alg =="Sentence Detector"){
-			System.out.println("Sentence Detector");
-		this.txtData.setProcessStrategy(new AlgSentenceDetector());
+			this.txtData.setProcessStrategy(new AlgSentenceDetector());
+			this.txtData.setAlgorithm("Sentence Detector");
 		}
 		else if(alg =="Tokenizer"){
-			System.out.println("Tokenizer");
 			this.txtData.setProcessStrategy(new AlgTokenizer());
-			
+			this.txtData.setAlgorithm("Sentence Detector");
 		}
 		else if(alg =="Parser"){
-			System.out.println("Parser");
 			this.txtData.setProcessStrategy(new AlgParser());
+			this.txtData.setAlgorithm("Tokenizer");
 		}	
 		else if(alg =="POS Tagger"){
-			System.out.println("POS Tagger");
 			this.txtData.setProcessStrategy(new AlgPOSTagger());
+			this.txtData.setAlgorithm("POS Tagger");
 		}
 		else if(alg =="Chunker"){
-			System.out.println("Chunker");
 			this.txtData.setProcessStrategy(new AlgChunker());
+			this.txtData.setAlgorithm("Chunker");
 		}
 		else{
 			System.out.println("ERROR");
 		}
-		
-		//this.txtData.notifyObservers();
-		System.out.println(alg);
+
 	}
 }
 

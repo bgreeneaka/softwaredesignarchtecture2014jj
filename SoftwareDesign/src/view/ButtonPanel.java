@@ -21,8 +21,8 @@ public class ButtonPanel extends View implements Observer {
 	private JComboBox algComboBox = new JComboBox();
 	private Subject txtData;
 	private JPanel borderPanel = new JPanel();
-//	String alg;
-	
+	private JLabel count = new JLabel("");
+
 	public ButtonPanel(Subject txtData) {
 		txtData.registerObserver((Observer)this);
 		this.txtData = txtData;
@@ -50,8 +50,13 @@ public class ButtonPanel extends View implements Observer {
 	}
 
 	@Override
-	public void update(/*String txtData,String path,String algorithm,String dbms*/) {
+	public void update() {
 		// TODO Auto-generated method stub	
+		if(algComboBox.getSelectedItem().toString().equalsIgnoreCase("Sentence Detector")){
+			this.count.setText("Number of sentences =" + Integer.toString(this.txtData.getSentenceCount()));
+		}else if(algComboBox.getSelectedItem().toString().equalsIgnoreCase("Tokenizer")){
+			this.count.setText("Number of Tokens =" + Integer.toString(this.txtData.getTokenCount()));
+		}
 	}
 	
 	public void addBtnCommands(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnProcessCmd btnAnalyse){
@@ -61,6 +66,7 @@ public class ButtonPanel extends View implements Observer {
 		borderPanel.add(btnOpenFile);
 		borderPanel.add(btnUpdateView);
 		borderPanel.add(btnAnalyse);
+		borderPanel.add(count);
 	}
 	
 	public void addComboBox(){

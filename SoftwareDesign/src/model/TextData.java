@@ -21,15 +21,17 @@ public class TextData  implements Subject, TextSubject {
 	private String algorithm ="";
 	private String dbms ="";
 	private ArrayList<Observer> observers;
-	private int stringCount = 0;
+	private int tokenCount = 0;
+	private int sentenceCount = 0;
 	
+
 	public TextData() {
 		// Constructor
 		observers = new ArrayList();
 	}
 	
 	public String getData(){
-		return data;
+		return data;		
 	}
 	
 	public void setData(String data) {
@@ -43,7 +45,6 @@ public class TextData  implements Subject, TextSubject {
 
 	public void setAlgorithm(String algorithm) {
 		this.algorithm = algorithm;
-		
 	}
 
 	public String getDbms() {
@@ -52,15 +53,24 @@ public class TextData  implements Subject, TextSubject {
 
 	public void setDbms(String dbms) {
 		this.dbms = dbms;
+		
+	}
+
+	public int getTokenCount() {
+		return tokenCount;
+	}
+
+	public void setTokenCount(int stringCount) {
+		this.tokenCount = stringCount;
 		notifyObservers();
 	}
-
-	public int getStringCount() {
-		return stringCount;
+	
+	public int getSentenceCount() {
+		return sentenceCount;
 	}
 
-	public void setStringCount(int stringCount) {
-		this.stringCount = stringCount;
+	public void setSentenceCount(int sentenceCount) {
+		this.sentenceCount = sentenceCount;
 		notifyObservers();
 	}
 
@@ -93,6 +103,8 @@ public class TextData  implements Subject, TextSubject {
 	public void setDataBase(Database dataBase) {
 		// TODO Auto-generated method stub
 		this.dataBase = dataBase;
+		setDbms(dataBase.description());
+		notifyObservers();
 	}
 
 
@@ -148,15 +160,6 @@ public class TextData  implements Subject, TextSubject {
 			o.addItemListener(strategyListner);
 		}
 	}
-
-
-//	@Override
-//	public void addDataBaseListner(DatabaseListner databaseListner) {
-//		// TODO Auto-generated method stub
-//		for(Observer o: observers){
-//			o.addItemListener(databaseListner);
-//		}
-//	}
 
 }
 

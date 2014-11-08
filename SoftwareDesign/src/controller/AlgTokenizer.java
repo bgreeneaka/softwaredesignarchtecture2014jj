@@ -34,13 +34,16 @@ public class AlgTokenizer  implements ProcessStrategy {
 		String tokens[] = tokenizer.tokenize(txtData.getData());
 		
 		String output ="";
+		int count = 0;
 		
 		for (String a : tokens){
 			System.out.println(a);
 			output += "\n" + a;
+			count++;
 		}
 		
 		is.close();
 		txtData.setData(output);
+		txtData.setTokenCount(count);
 	}
 }

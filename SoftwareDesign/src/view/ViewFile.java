@@ -43,11 +43,8 @@ public class ViewFile extends View implements Observer {
 	}
 	
 	@Override
-	public void update(/*String txtData,String path,String algorithm,String dbms*/) {
-		// Updates the testArea with new string. This also needs work but provides proof of concept
-//		String output = "Default string is:" + "\nFile path is:"+path+"\nSelected algorithm is:"+algorithm+"\nSelected DBMS is:"+dbms;
+	public void update() {
 		this.txtArea.setText(txtData.getData());
-		
 	}
 
 	/*

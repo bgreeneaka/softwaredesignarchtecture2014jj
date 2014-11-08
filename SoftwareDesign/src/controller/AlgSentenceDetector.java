@@ -32,10 +32,14 @@ public class AlgSentenceDetector implements ProcessStrategy {
 		System.out.println(sentences[0]);
 		System.out.println(sentences[1]);
 		String updateString = "";
+		int count = 0;
+		
 		for (int i = 0; i < sentences.length; i++) {
 			updateString += "\n" + sentences[i];
+			count++;
 		}
 		is.close();
 		txtData.setData(updateString);
+		txtData.setSentenceCount(count); 
 	}
 }
