@@ -3,6 +3,8 @@ package controller;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 
+import command.Command;
+
 
 public class FileOpenCommand extends JMenuItem implements Command {
 	

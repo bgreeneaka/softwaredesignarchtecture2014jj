@@ -1,7 +1,11 @@
-package view;
+package factory;
 
 import javax.swing.JPanel;
 
+import view.ButtonPanel;
+import view.Status;
+import view.View;
+import view.ViewFile;
 import model.Subject;
 import model.TextData;
 

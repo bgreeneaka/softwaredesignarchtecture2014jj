@@ -1,10 +1,10 @@
 package model;
 
-import controller.AlgSentenceDetector;
-import controller.ProcessStrategy;
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
 import decorator.Database;
+import strategy.AlgSentenceDetector;
+import strategy.ProcessStrategy;
 import view.Observer;
 
 public interface Subject {

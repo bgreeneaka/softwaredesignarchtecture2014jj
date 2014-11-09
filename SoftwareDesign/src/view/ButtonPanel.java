@@ -8,10 +8,11 @@ import java.awt.event.ItemListener;
 
 import javax.swing.* ;
 
+import command.BtnOpenCmd;
+import command.BtnProcessCmd;
+import command.BtnUpdateCmd;
+
 import model.Subject;
-import controller.BtnProcessCmd;
-import controller.BtnOpenCmd;
-import controller.BtnUpdateCmd;
 
 public class ButtonPanel extends View implements Observer {
 	

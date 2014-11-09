@@ -1,8 +1,8 @@
 package model;
 
-import controller.AlgSentenceDetector;
+import strategy.AlgSentenceDetector;
+import strategy.ProcessStrategy;
 //import controller.Controller.DatabaseListner;
-import controller.ProcessStrategy;
 import controller.Controller.CommandListner;
 import controller.Controller.StrategyListner;
 import decorator.Database;

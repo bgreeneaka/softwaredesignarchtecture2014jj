@@ -4,7 +4,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+
 import javax.swing.JComboBox;
+
+import command.Command;
+
+import strategy.AlgChunker;
+import strategy.AlgPOSTagger;
+import strategy.AlgParser;
+import strategy.AlgSentenceDetector;
+import strategy.AlgTokenizer;
 import model.TextSubject;
 
 public class Controller {

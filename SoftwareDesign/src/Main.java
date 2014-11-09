@@ -2,16 +2,17 @@
 import java.awt.BorderLayout;
 import java.io.IOException;
 
+import command.BtnCreateDBCmd;
+import command.BtnOpenCmd;
+import command.BtnProcessCmd;
+import command.BtnUpdateCmd;
+
 import opennlp.tools.util.InvalidFormatException;
-import controller.BtnProcessCmd;
-import controller.BtnOpenCmd;
-import controller.BtnUpdateCmd;
-import controller.BtnCreateDBCmd;
 import controller.Controller;
+import factory.ObserverFactory;
 import view.ButtonPanel;
 import view.DBControlsPanel;
 import view.MainUI;
-import view.ObserverFactory;
 import view.View;
 import model.TextData;
 

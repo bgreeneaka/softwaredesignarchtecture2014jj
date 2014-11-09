@@ -1,4 +1,4 @@
-package controller;
+package command;
 
 import java.io.IOException;
 
@@ -6,6 +6,7 @@ import javax.swing.JButton;
 
 import model.Subject;
 import opennlp.tools.util.InvalidFormatException;
+import strategy.ProcessStrategy;
 
 public class BtnProcessCmd extends JButton implements Command {
 	

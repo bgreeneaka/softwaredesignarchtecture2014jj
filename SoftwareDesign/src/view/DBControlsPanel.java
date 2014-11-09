@@ -3,23 +3,20 @@ package view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-
 import java.awt.GridLayout;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
 
 import javax.swing.*;
 
+import command.BtnCreateDBCmd;
+import command.BtnOpenCmd;
+import command.BtnProcessCmd;
+import command.BtnUpdateCmd;
+import command.Command;
 
-import controller.BtnOpenCmd;
-import controller.BtnProcessCmd;
-import controller.BtnUpdateCmd;
-import controller.BtnCreateDBCmd;
 import model.Subject;
-
-import controller.Command;
 import model.TextData;
 
 

@@ -6,8 +6,8 @@ import controller.Controller.CommandListner;
 //import controller.Controller.DatabaseListner;
 import controller.Controller.StrategyListner;
 //import controller.Controller.StrategyListner;
-import controller.ProcessStrategy;
 import decorator.Database;
+import strategy.ProcessStrategy;
 import view.Observer;
 /*
  * This is the subject, the Observable object
