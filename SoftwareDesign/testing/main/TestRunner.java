@@ -12,7 +12,8 @@ import org.junit.runners.Suite.SuiteClasses;
 		command.BtnUpdateCmdTest.class, controller.ControllerTest.class,
 		strategy.AlgChunkerTest.class, strategy.AlgParserTest.class,
 		strategy.AlgTokenizerTest.class, strategy.AlgPOSTaggerTest.class,
-		strategy.AlgSentenceDetectorTest.class,model.TextDataTest.class,
+		strategy.AlgSentenceDetectorTest.class, model.TextDataTest.class,
+		factory.ObserverFactoryTest.class
 
 })
 // the actual class is empty
