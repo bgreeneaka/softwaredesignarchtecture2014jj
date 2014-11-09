@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.cmdline.PerformanceMonitor;
 import opennlp.tools.cmdline.postag.POSModelLoader;
 import opennlp.tools.postag.POSModel;
@@ -22,7 +23,7 @@ public class AlgPOSTagger implements ProcessStrategy {
 	}
 
 	@Override
-	public void doAnalyseAlgoritm(Subject txtData)
+	public void doAnalyseAlgoritm(TextData txtData)
 			throws InvalidFormatException, IOException {
 		System.out.println("Running doAnalyseAlgorithm for POS Tagger");
 		

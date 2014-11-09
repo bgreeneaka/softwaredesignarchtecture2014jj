@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
@@ -23,7 +24,7 @@ public class AlgTokenizer  implements ProcessStrategy {
 	}
 
 	@Override
-	public void doAnalyseAlgoritm(Subject txtData) throws InvalidFormatException, IOException {
+	public void doAnalyseAlgoritm(TextData txtData) throws InvalidFormatException, IOException {
 		
 		InputStream is = new FileInputStream("C:/Users/Admin/git/SoftwareDesign/en-token.bin");
 		 

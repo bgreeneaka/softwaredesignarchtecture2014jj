@@ -11,8 +11,8 @@ import javax.swing.* ;
 import command.BtnOpenCmd;
 import command.BtnProcessCmd;
 import command.BtnUpdateCmd;
-
 import model.Subject;
+import model.TextData;
 
 public class ButtonPanel extends View implements Observer {
 	
@@ -20,11 +20,11 @@ public class ButtonPanel extends View implements Observer {
 	private BtnOpenCmd btnOpenFile;
 	private BtnProcessCmd btnAnalyse;
 	private JComboBox algComboBox = new JComboBox();
-	private Subject txtData;
+	private TextData txtData;
 	private JPanel borderPanel = new JPanel();
 	private JLabel count = new JLabel("");
 
-	public ButtonPanel(Subject txtData) {
+	public ButtonPanel(TextData txtData) {
 		txtData.registerObserver((Observer)this);
 		this.txtData = txtData;
 		setLayout(new FlowLayout());

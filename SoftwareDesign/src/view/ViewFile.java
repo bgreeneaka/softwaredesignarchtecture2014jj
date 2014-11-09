@@ -7,17 +7,18 @@ import java.awt.event.ItemListener;
 import javax.swing.*;
 
 import model.Subject;
+import model.TextData;
 
 public class ViewFile extends View implements Observer {
 	
-	private Subject txtData;
+	private TextData txtData;
 	
 	private JTextArea txtArea = new JTextArea("Open File to process"); // New  txt area with default txt	
 	/*
 	 * Creates a panel 
 	 * 
 	 */
-	public ViewFile(Subject txtData) {
+	public ViewFile(TextData txtData) {
 		this.txtData = txtData;
 		txtData.registerObserver((Observer)this);		
 		JPanel panel = new JPanel();

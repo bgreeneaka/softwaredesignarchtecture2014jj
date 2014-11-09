@@ -17,9 +17,9 @@ import view.ViewFile;
 public class BtnOpenCmd extends JButton implements Command {
 
 	private View fileView;
-	private Subject txtData;
+	private TextData txtData;
 	
-	public BtnOpenCmd(String caption, Subject txtData){
+	public BtnOpenCmd(String caption,TextData txtData){
 		super(caption);
 		this.txtData = txtData;
 		

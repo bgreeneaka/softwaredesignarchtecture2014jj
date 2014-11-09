@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.StringReader;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.chunker.ChunkerME;
 import opennlp.tools.chunker.ChunkerModel;
 import opennlp.tools.cmdline.PerformanceMonitor;
@@ -26,7 +27,7 @@ public class AlgChunker implements ProcessStrategy {
 	}
 
 	@Override
-	public void doAnalyseAlgoritm(Subject txtData)
+	public void doAnalyseAlgoritm(TextData txtData)
 			throws InvalidFormatException, IOException {
 		System.out.println("Running doAnalyseAlgorithm for Chunker");
 		// TODO Auto-generated method stub

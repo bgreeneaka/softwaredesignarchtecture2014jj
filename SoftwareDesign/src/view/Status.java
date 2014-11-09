@@ -8,13 +8,15 @@ import java.awt.event.ItemListener;
 import javax.swing.*;
 
 import model.Subject;
+import model.TextData;
 
 public class Status extends View implements Observer {
 	
 	private JTextArea txtArea = new JTextArea("Program status"); // New  txt area with default txt
 	private JLabel status = new JLabel("File status");
-	private Subject txtData;
-	public Status(Subject txtData) {
+	private TextData txtData;
+	
+	public Status(TextData txtData) {
 		// TODO Auto-generated constructor stub
 		txtData.registerObserver((Observer)this);
 		this.txtData = txtData;

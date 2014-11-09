@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.util.InvalidFormatException;
@@ -17,7 +18,7 @@ public class AlgSentenceDetector implements ProcessStrategy {
 	}
 
 	@Override
-	public void doAnalyseAlgoritm(Subject txtData)
+	public void doAnalyseAlgoritm(TextData txtData)
 			throws InvalidFormatException, IOException {
 		System.out.println("Running doAnalyseAlgorithm for Sentence Detector");
 		String str = txtData.getData();

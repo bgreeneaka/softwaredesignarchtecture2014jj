@@ -14,9 +14,9 @@ import model.TextData;
 public class ObserverFactory {
 	
 	public String type;
-	public Subject txtData;
+	public TextData txtData;
 	
-	public ObserverFactory(String type, Subject txtData) {
+	public ObserverFactory(String type, TextData txtData) {
 		// TODO Auto-generated constructor stub
 		this.type = type;
 		this.txtData = txtData;

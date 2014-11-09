@@ -9,13 +9,14 @@ import decorator.MongoConnection;
 import decorator.OracleConnection;
 import decorator.SQLConnection;
 import model.Subject;
+import model.TextData;
 import opennlp.tools.util.InvalidFormatException;
 
 public class BtnCreateDBCmd extends JButton implements Command {
 	
-	private Subject txtData;
+	private TextData txtData;
 	
-	public BtnCreateDBCmd(String caption,Subject txtData) {
+	public BtnCreateDBCmd(String caption,TextData txtData) {
 		// TODO Auto-generated constructor stub
 		super(caption);
 		this.txtData = txtData;

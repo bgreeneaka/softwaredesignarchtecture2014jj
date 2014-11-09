@@ -7,9 +7,9 @@ import model.TextData;
 
 public class BtnUpdateCmd extends JButton implements Command {
 	
-	private Subject txtData;
+	private TextData txtData;
 	
-	public BtnUpdateCmd(String caption, Subject txtData) {
+	public BtnUpdateCmd(String caption, TextData txtData) {
 		// TODO Auto-generated constructor stub
 		super(caption);
 		this.txtData = txtData;

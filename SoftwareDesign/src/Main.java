@@ -43,7 +43,6 @@ public class Main {
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",txtData);
 	BtnProcessCmd btnProcess = new BtnProcessCmd("Process", txtData);
 	BtnCreateDBCmd btnCreateDB = new BtnCreateDBCmd("Create", txtData);
-	//ButtonPanel btnPanel = new ButtonPanel(txtData);
 	
 	
 	((ButtonPanel) btnPanel).addBtnCommands(btnOpenFile, btnUpdateView, btnProcess);		

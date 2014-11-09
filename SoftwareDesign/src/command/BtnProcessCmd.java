@@ -5,15 +5,16 @@ import java.io.IOException;
 import javax.swing.JButton;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.util.InvalidFormatException;
 import strategy.ProcessStrategy;
 
 public class BtnProcessCmd extends JButton implements Command {
 	
-	private Subject txtData;
+	private TextData txtData;
 	private ProcessStrategy processStrategy ;
-	//Context context = new Context(new SentenceDetectionStrategy());
-	public BtnProcessCmd(String caption, Subject txtData) {
+	
+	public BtnProcessCmd(String caption, TextData txtData) {
 		// TODO Auto-generated constructor stub
 		super(caption);
 		this.txtData = txtData;

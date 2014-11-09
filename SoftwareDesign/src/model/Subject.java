@@ -14,37 +14,7 @@ public interface Subject {
 	
 	public void notifyObservers();
 	
-	public String getData();
 	
-	public void setPath(String string);
-	
-	public void setData(String string);
-	
-	public String getAlgorithm();
-	
-	public void setAlgorithm(String string);
-	
-	public String getDbms();
-	
-	public void setDbms(String dbms);
-	
-	public String getPath();
-	
-	public void setProcessStrategy(ProcessStrategy processStrategy);
-	
-	public ProcessStrategy getProcessStrategy();
-	
-	public Database getDatabase();
-	
-	public void setDataBase(Database dataBase);
-	
-	public int getSentenceCount();
-	
-	public void setSentenceCount(int sentenceCount);
-	
-	public int getTokenCount();
-	
-	public void setTokenCount(int stringCount);
 	
 	
 }

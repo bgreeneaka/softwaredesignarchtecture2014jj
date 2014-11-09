@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import model.Subject;
+import model.TextData;
 import opennlp.tools.cmdline.parser.ParserTool;
 import opennlp.tools.parser.Parse;
 import opennlp.tools.parser.Parser;
@@ -20,7 +21,7 @@ public class AlgParser  implements ProcessStrategy {
 }
 
 	@Override
-	public void doAnalyseAlgoritm(Subject txtData) throws InvalidFormatException, IOException {
+	public void doAnalyseAlgoritm(TextData txtData) throws InvalidFormatException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Running doAnalyseAlgorithm for Name Finder");
 		
