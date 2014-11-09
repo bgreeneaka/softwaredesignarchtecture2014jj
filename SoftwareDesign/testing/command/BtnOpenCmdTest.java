@@ -17,7 +17,8 @@ import org.junit.Test;
 public class BtnOpenCmdTest {
 	private BtnOpenCmd btn;
 	private Subject txtData;
-	private Robot robot;
+	private Robot r ;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -29,9 +30,9 @@ public class BtnOpenCmdTest {
 	@Before
 	public void setUp() throws Exception {
 		txtData = new TextData();
+		r = new Robot();
 		btn = new BtnOpenCmd("",txtData);
-		robot = new Robot();
-	}
+			}
 
 	@After
 	public void tearDown() throws Exception {
@@ -44,13 +45,8 @@ public class BtnOpenCmdTest {
 
 	@Test
 	public final void testExecute() {
-		System.out.println("No db created");
-		//btn.execute();
-		robot.mouseMove(500,500);
-		robot.setAutoDelay(5000);
-		
-		robot.keyPress(KeyEvent.VK_SPACE);
-		robot.keyRelease(KeyEvent.VK_SPACE);
+		btn.execute();
+		assertEquals(txtData.getPath(),"C:\\Users\\Bart\\Documents\\b.txt");
 	}
 
 }

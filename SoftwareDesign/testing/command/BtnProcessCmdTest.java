@@ -34,10 +34,9 @@ public class BtnProcessCmdTest {
 	@Before
 	public void setUp() throws Exception {
 		txtData = new TextData();
-		txtData.setData("TextDataString1. Text DataString2. Text DataString3. TextData String4. ");
 		btn = new BtnProcessCmd("Process", txtData);
 		processStrategy = new AlgSentenceDetector();
-		txtData.setProcessStrategy(processStrategy);
+		
 	}
 
 	@After
@@ -50,16 +49,9 @@ public class BtnProcessCmdTest {
 //	}
 
 	@Test
-	public final void testExecute() {
-		try {
-			btn.execute();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		assertEquals(
-				txtData.getData(),
-				"\nTextDataString1.\nText DataString2.\nText DataString3.\nTextData String4.");
+	public final void testExecute() throws IOException {
+		btn.execute();
+		assertEquals(txtData.getData(),"");
 	}
 
 }

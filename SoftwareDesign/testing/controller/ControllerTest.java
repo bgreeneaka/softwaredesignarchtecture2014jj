@@ -29,7 +29,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		//txtData = new TextSubject();
+		
 		txtData = new TextData();
 		alg="";
 		ctrl = new Controller(txtData);

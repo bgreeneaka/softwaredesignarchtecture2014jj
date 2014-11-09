@@ -9,10 +9,11 @@ import opennlp.tools.util.InvalidFormatException;
 import strategy.ProcessStrategy;
 
 public class BtnProcessCmd extends JButton implements Command {
-	
+
 	private Subject txtData;
-	private ProcessStrategy processStrategy ;
-	//Context context = new Context(new SentenceDetectionStrategy());
+	private ProcessStrategy processStrategy;
+
+	// Context context = new Context(new SentenceDetectionStrategy());
 	public BtnProcessCmd(String caption, Subject txtData) {
 		// TODO Auto-generated constructor stub
 		super(caption);
@@ -20,9 +21,19 @@ public class BtnProcessCmd extends JButton implements Command {
 	}
 
 	@Override
-	public void execute() throws InvalidFormatException, IOException {
+	public void execute() {
+
 		
-		processStrategy= this.txtData.getProcessStrategy();
-		processStrategy.doAnalyseAlgoritm(txtData);
+		try {
+			processStrategy = this.txtData.getProcessStrategy();
+			processStrategy.doAnalyseAlgoritm(txtData);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+						e.printStackTrace();
+		}
+
 	}
 }

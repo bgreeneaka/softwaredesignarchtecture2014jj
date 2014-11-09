@@ -11,6 +11,9 @@ import org.junit.Test;
 
 
 
+
+import command.BtnCreateDBCmd;
+
 import strategy.AlgChunker;
 import strategy.ProcessStrategy;
 import decorator.Database;
@@ -33,14 +36,15 @@ public class TextDataTest {
 
 	@Before
 	public void setUp() throws Exception {
-
 		txtData = new TextData();
 		dataBase = new Database();
 		processStrategy = new AlgChunker();
-		txtData.setAllTextData("TextDataString1. Text DataString2. Text DataString3. TextData String4. ", "PathString",
-				"AlgorithmString", "DBMSString");
+		txtData.setDbms("Oracle");
 		txtData.setDataBase(dataBase);
 		txtData.setProcessStrategy(processStrategy);
+		txtData.setAllTextData("TextDataString1. Text DataString2. Text DataString3. TextData String4. ", "PathString",
+				"AlgorithmString", "DBMSString");
+		
 	}
 
 	@After

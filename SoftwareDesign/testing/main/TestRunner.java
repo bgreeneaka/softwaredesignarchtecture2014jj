@@ -1,37 +1,21 @@
 package main;
 
-import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+// specify a runner class: Suite.class
+@RunWith(Suite.class)
+// specify an array of test classes
+@Suite.SuiteClasses({ command.BtnCreateDBCmdTest.class,
+		command.BtnOpenCmdTest.class, command.BtnProcessCmdTest.class,
+		command.BtnUpdateCmdTest.class, controller.ControllerTest.class,
+		strategy.AlgChunkerTest.class, strategy.AlgParserTest.class,
+		strategy.AlgTokenizerTest.class, strategy.AlgPOSTaggerTest.class,
+		strategy.AlgSentenceDetectorTest.class,model.TextDataTest.class,
 
+})
+// the actual class is empty
 public class TestRunner {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-		
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public final void test() {
-	
-		
-		
-	}
-
+	;
 }
