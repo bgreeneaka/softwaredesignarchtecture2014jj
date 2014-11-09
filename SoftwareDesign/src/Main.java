@@ -2,7 +2,7 @@
 import java.awt.BorderLayout;
 import java.io.IOException;
 
-import opennlp.tools.util.InvalidFormatException;
+
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
@@ -37,6 +37,7 @@ public class Main {
 	DBControlsPanel dbControls = new DBControlsPanel(txtData);
 
 
+
 	BtnUpdateCmd btnUpdateView = new BtnUpdateCmd("Reset View", txtData);
 	BtnOpenCmd btnOpenFile = new BtnOpenCmd("Open File",txtData);
 	BtnProcessCmd btnProcess = new BtnProcessCmd("Process", txtData);
@@ -47,11 +48,18 @@ public class Main {
 	((ButtonPanel) btnPanel).addBtnCommands(btnOpenFile, btnUpdateView, btnProcess);		
 	dbControls.addBtnCommands(btnCreateDB);
 	
+
+	
+
+	ControlPanel ctrlPanel = new ControlPanel(txtData);
+	DBControlsPanel dbControls = new DBControlsPanel(txtData);
+
+
 	MainUI ui = new MainUI();
 	ui.add(view,BorderLayout.CENTER);
 	ui.add(btnPanel, BorderLayout.LINE_START);
 	ui.add(dbControls, BorderLayout.LINE_END);
-	System.out.println("dbControls added");
+	
 	ui.add(status, BorderLayout.PAGE_END);
 	System.out.println("status added to ui");
 	
