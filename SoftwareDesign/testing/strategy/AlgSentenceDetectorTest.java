@@ -15,7 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class AlgSentenceDetectorTest {
-	private Subject txtData;
+	private TextData txtData;
 	private ProcessStrategy ps;
 	
 	@BeforeClass

@@ -13,7 +13,7 @@ import org.junit.Test;
 public class BtnUpdateCmdTest {
 
 	private BtnUpdateCmd btn;
-	private Subject txtData;
+	private TextData txtData;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

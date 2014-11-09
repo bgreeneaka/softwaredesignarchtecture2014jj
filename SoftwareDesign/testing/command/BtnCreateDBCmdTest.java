@@ -20,7 +20,7 @@ import decorator.OracleConnection;
 
 public class BtnCreateDBCmdTest {
 	private BtnCreateDBCmd btn;
-	private Subject txtData;
+	private TextData txtData;
 	private String selectedDataBase;
 	private Database database;
 	private OracleConnection Oracledatabase;

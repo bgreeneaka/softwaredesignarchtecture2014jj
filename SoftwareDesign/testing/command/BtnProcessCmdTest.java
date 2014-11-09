@@ -17,7 +17,7 @@ import strategy.AlgSentenceDetector;
 import strategy.ProcessStrategy;
 
 public class BtnProcessCmdTest {
-	private Subject txtData;
+	private TextData txtData;
 	private BtnProcessCmd btn;
 	private ProcessStrategy processStrategy;
 

@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class BtnOpenCmdTest {
 	private BtnOpenCmd btn;
-	private Subject txtData;
+	private TextData txtData;
 	private Robot r ;
 	
 	@BeforeClass
@@ -46,7 +46,7 @@ public class BtnOpenCmdTest {
 	@Test
 	public final void testExecute() {
 		btn.execute();
-		assertEquals(txtData.getPath(),"C:\\Users\\Bart\\Documents\\b.txt");
+		assertEquals(txtData.getPath(),"C:/Users/Admin/Documents/Budgets/JavaTest.txt");
 	}
 
 }
