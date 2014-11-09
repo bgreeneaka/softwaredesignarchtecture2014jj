@@ -8,7 +8,6 @@ import java.io.IOException;
 import javax.swing.JComboBox;
 
 import command.Command;
-
 import strategy.AlgChunker;
 import strategy.AlgPOSTagger;
 import strategy.AlgParser;
@@ -59,7 +58,7 @@ public class Controller {
 	}
 	
 
-	private void selectAlgorithm() {
+	public void selectAlgorithm() {
 
 		if (alg ==""){
 			System.out.println("ERROR");
@@ -89,5 +88,14 @@ public class Controller {
 		}
 
 	}
+
+
+	public void setAlg(String string) {
+		alg =string;
+		
+	}
+
+
+	
 }
 

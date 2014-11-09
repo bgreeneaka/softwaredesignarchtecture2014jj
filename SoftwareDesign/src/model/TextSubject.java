@@ -24,4 +24,8 @@ public interface TextSubject{
 	public Database getDatabase();
 	
 	public void setDataBase(Database dataBase);
+
+	public String getAlgorithm();
+
+	
 }
