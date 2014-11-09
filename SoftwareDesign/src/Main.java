@@ -2,7 +2,7 @@
 import java.awt.BorderLayout;
 import java.io.IOException;
 
-
+import opennlp.tools.util.InvalidFormatException;
 import controller.BtnProcessCmd;
 import controller.BtnOpenCmd;
 import controller.BtnUpdateCmd;
@@ -48,11 +48,6 @@ public class Main {
 	((ButtonPanel) btnPanel).addBtnCommands(btnOpenFile, btnUpdateView, btnProcess);		
 	dbControls.addBtnCommands(btnCreateDB);
 	
-
-	
-
-	ControlPanel ctrlPanel = new ControlPanel(txtData);
-	DBControlsPanel dbControls = new DBControlsPanel(txtData);
 
 
 	MainUI ui = new MainUI();
