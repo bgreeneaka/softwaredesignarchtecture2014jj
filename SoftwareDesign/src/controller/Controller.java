@@ -69,11 +69,11 @@ public class Controller {
 		}
 		else if(alg =="Tokenizer"){
 			this.txtData.setProcessStrategy(new AlgTokenizer());
-			this.txtData.setAlgorithm("Sentence Detector");
+			this.txtData.setAlgorithm("Tokenizer");
 		}
 		else if(alg =="Parser"){
 			this.txtData.setProcessStrategy(new AlgParser());
-			this.txtData.setAlgorithm("Tokenizer");
+			this.txtData.setAlgorithm("Parser");
 		}	
 		else if(alg =="POS Tagger"){
 			this.txtData.setProcessStrategy(new AlgPOSTagger());

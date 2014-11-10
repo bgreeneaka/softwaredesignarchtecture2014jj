@@ -16,7 +16,7 @@ import view.ViewFile;
 
 public class ObserverFactoryTest {
 	// private String type;
-	private Subject txtData;
+	private TextData txtData;
 	private ObserverFactory OF;
 
 	@BeforeClass
@@ -51,7 +51,7 @@ public class ObserverFactoryTest {
 
 	@Test
 	public final void testCreateObserverStatus() {
-		OF = new ObserverFactory("Status", txtData);
+		OF = new ObserverFactory("Status",  txtData);
 		assertNotNull(OF.createObserver());
 	}
 

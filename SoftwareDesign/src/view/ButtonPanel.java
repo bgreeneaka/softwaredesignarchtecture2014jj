@@ -58,6 +58,9 @@ public class ButtonPanel extends View implements Observer {
 		}else if(algComboBox.getSelectedItem().toString().equalsIgnoreCase("Tokenizer")){
 			this.count.setText("Number of Tokens =" + Integer.toString(this.txtData.getTokenCount()));
 		}
+		else{
+			this.count.setText("");
+		}
 	}
 	
 	public void addBtnCommands(BtnOpenCmd btnOpenFile,BtnUpdateCmd btnUpdateView,BtnProcessCmd btnAnalyse){
